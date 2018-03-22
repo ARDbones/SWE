@@ -79,21 +79,45 @@ I diagrammi dei casi d'uso sono grafi con gli attori e i casi d'uso come nodi, m
 \end{figure}
 
 \subsubsection{Inclusione}
-L'inclusione viene utilizzata quando una funzionalità è comune a più casi d'uso. \texttt{A <<include>> B} indica che ogni istanza di A esegue B in modo incondizionato. A non conosce i dettagli di B, ma solo i risultati. Allo stesso modo, B non sa di essere incluso in A.
+L'inclusione viene utilizzata quando una funzionalità è comune a più casi d'uso. 
+\texttt{A <<include>> B} indica che ogni istanza di A esegue B in modo incondizionato. 
+A non conosce i dettagli di B, ma solo i risultati. Allo stesso modo, B non sa di essere incluso in A.
 
 \subsubsection{Estensione}
-L'estensione aumenta le funzionalità di un caso d'uso. \texttt{A <<extend>> B} indica che ogni istanza di A esegue B in modo condizionato, cioè l'esecuzione di B interrompe A.
-[...]
+L'estensione aumenta le funzionalità di un caso d'uso. 
+\texttt{A <<extend>> B} indica che ogni istanza di A esegue B in modo condizionato, cioè l'esecuzione di B interrompe A.
+Questa relazione viene spesso utilizzata per isolare in uno caso d'uso a parte la specifica di attività opzionali 
+o eccezionali che potrebbero aver luogo durante l'esecuzione della funzione principale.
 
 \subsubsection{Inclusione vs Estensione}
-[...]
+Entrambe le relazioni aumentano il comportamento di un caso d'uso e possono essere comuni a più casi d'uso. 
+Nell'inclusione, un attore esegue sempre tutte le inclusioni, mentre nell'estensione l'attore può non esesguirle tutte.
+Quindi, un'inclusione viene usata se una funzionalità si ripete in più casi d'uso; 
+l'esetensione se si vogliono descrivere variazioni dalla funzionalità standard. 
 
 \subsubsection{Generalizzazione}
-La generalizzazione aggiunge o modifica delle caratteristiche di base. Può essere usato tra attori o tra casi d'uso (più raro). A è generalizzazione di B se B condivide almeno le funzionalità di A.
+La generalizzazione aggiunge o modifica delle caratteristiche di base. 
+Può essere usato tra attori o tra casi d'uso (più raro). 
+A è generalizzazione di B se B condivide almeno le funzionalità di A.
 
+\subsection{Individuazione Casi d'Uso}
 
+Definizione del contesto:
+\begin{enumerate}
+\item Identificazione attori e responsabilità
+\item Identificazione degli obiettivi da raggiungere per ciascun attore (Primi approssimazione use case)
+\item Valutare attori e use case e raffinarli (Divisione e accorpamento)
+\item Trovare le relazioni di inclusione
+\item Trovare le relazioni di estensione
+\item Trovare le relazioni di generalizzazione
+\end{enumerate}
 
-
+Livello di dettaglio:
+\begin{itemize}
+\item Kite level - Livello molto astratto, definisce macro funzionalità
+\item Sea level - Livello intermedio, utile nella scoperta di funzionalità nascoste
+\item Fish level - Livello di dettaglio, da esso si individuano direttamente i requisiti del sistema
+\end{itemize}
 
 \section{Diagrammi delle Classi}
 \section{Diagrammi dei Package}
