@@ -120,10 +120,126 @@ Livello di dettaglio:
 \end{itemize}
 
 \section{Diagrammi delle Classi}
+I diagrammi delle classi fanno parte dei diagrammi di struttura e si usano per rappresentare i tipi di oggetti che fanno parte di un sistema e le relazioni statiche fra i tipi. 
 
+\subsection{Le classi}
+Una classe si rappresenta:
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|}
+\hline
+\textbf{Nome della classe} \\
+\hline
+Attributo 1 \\
+... \\
+Attributo N \\
+\hline
+Operazione 1 \\
+... \\
+Operazione M \\
+\hline
+\end{tabular}
+\caption{Rappresentazione di un classe}
+\end{table}
+Solo il nome della classe è obbligatorio, il resto è opzionale. \\
+Un \textbf{attributo} è definito con:
+\begin{verbatim}
+Visibilità nome : tipo [molteplicità] = default {proprietà aggiuntive}
+\end{verbatim}
+La visibilità può essere:
+\begin{itemize}
+\item[\texttt{+}] public
+\item[\texttt{\#}] protected
+\item[\texttt{\textasciitilde}] package
+\item[\texttt{-}] private
+\end{itemize}
+Un'\textbf{operazione} è un'azione che la classe sa eseguire ed è un servizio che può esser richiesto da ogni oggetto. Si definisce con:
+\begin{verbatim}
+Visibilità nome (lista-parametri) : tipo-ritorno {proprietà aggiuntive}
+
+lista-parametri := direzione nome : tipo = default
+\end{verbatim}
+La visibilità si indica come per gli attributi, mentre la direzione può essere:
+\begin{itemize}
+\item in (default)
+\item out
+\item inout
+\end{itemize}
+Un'operazione è detta \textit{modificatore} se modifica lo stato dell'oggetto; è detta \textit{query} se non modifica lo stato. \\
+\textbf{NB}: Non c'è una relazione diretta tra operazione e metodo.
+
+Un'\textbf{associazione} è descritta da una freccia che collega due classi; a volte ha un'etichetta ed è preferibile che sia un nome piuttosto che un verbo.
+Ogni associazione può avere la molteplicità che indica quanti oggetti possono far parte dell'associazione (1, 0..1, 0..*, *). 
+
+\`E possibile aggiungere \textbf{commenti} e note in un riquadro, collegandolo con una linea tratteggiata al punto di interesse.
+
+\subsection{Relazioni tra classi}
+
+Due classi possono essere collegate da diversi tipi di relazione, ognuna rappresentata da un diverso tipo di freccia:
+\begin{itemize}
+\item dipendenza
+\item associazione
+\item aggregazione
+\item composizione
+\item generalizzazione
+\end{itemize}
+
+\begin{figure}[H]
+    \includegraphics[width=1\textwidth]{res/img/relazioniClassi}
+    \caption{Relazioni tra classi (\textit{Slide E03})}
+\end{figure}
+
+\subsubsection{Dipendenza}
+Si ha una relazione di dipendenza se la modifica della definizione di un elemento può cambiare la definizione del secondo elemento. 
+Maggiore è il codice condiviso tra due classi, maggiore è la dipendenza. Le dipendenze sono da minimizzare.
+
+\textit{[Manca la lista di dipendenze UML]}
+
+\subsubsection{Associazione}
+In una normale relazione, è possibile usare classi di associazione che aggiungono attributi e operazioni alle associazioni. 
+\`E una sorta di classe intermedia; per ogni coppia di oggetti, esiste una sola istanza della classe associazione. 
+
+La classe di associazione è collegata all'associazione con una linea tratteggiata.
+
+\subsubsection{Aggregazione}
+Indica una relazione "parte di". Gli aggregati possono essere condivisi. Il \textit{diamante vuoto} della freccia è il punto di partenza della relazione.
+
+\subsubsection{Composizione}
+Come nell'aggregazione, indica una relazione "parte di", ma gli aggregati appartengono ad un solo oggetto e quest'ultimo è l'unico che può creare o distruggere le sue parti. 
+
+Il \textit{diamante pieno} della freccia è il punto di partenza della relazione.
+
+\subsubsection{Generalizzazione}
+La generalizzazione equivale all'ereditarietà nei linguaggi di programmazione. 
+A generalizza B se ogni oggetto di B è anche oggetto di A. Le proprietà ereditate non vanno ripetute nella sottoclasse.
+
+Esistono anche la classi astratte e le interfacce. Le classi astratte hanno il nome in corsivo o \texttt{nome \{abstract\}}. La classe non è istanziabile  e le operazioni non hanno implementazioni [tutte??]. 
+
+Le interfacce si indicano con \texttt{<<interface>> nome} nella solita forma tabellare (UML 1) o si usa un pallino con sotto il nome e le operazioni (UML 2).
+Sono classi prive di implementazioni. 
+
+\subsection{Diagrammi degli oggetti}
+\`E un grafo delle singole istanze, comprensivo di associazioni e valori delle proprietà.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|}
+\hline
+nome dell'istanza : nome della classe \\
+\hline
+nome dell'attributo = valore \\
+\hline
+\end{tabular}
+\caption{Diagramma di un oggetto}
+\end{table}
 
 \section{Diagrammi dei Package}
+I diagrammi dei Package fanno parte dei diagrammi di struttura. 
 
 
 \section{Diagrammi di Sequenza}
+I diagrammi di sequenza fanno parte dei diagrammi di comportamento. 
+
+
 \section{Diagrammi di Attività}
+I diagrammi di attività fanno parte dei diagrammi di comportamento. 
