@@ -29,7 +29,8 @@ Le funzionalità vengono descritte secondo la visione esterna, ovvero come vengo
 
 I casi d'uso sono descrizioni puramente testuali, mentre i diagrammi dei casi d'uso vengono descritti con UML e rappresentano graficamente le relazioni tra attori e casi d'uso.
 
-Un caso d'uso deve essere elementare, cioè non scomponibile in casi d'uso più semplici che abbiano ancora senso compiuto per gli attori coinvolti. Deve essere più grande di una singola operazione su un componente. 
+Un caso d'uso deve essere elementare, cioè non scomponibile in casi d'uso più semplici che abbiano ancora senso compiuto per gli attori coinvolti. 
+Deve essere più grande di una singola operazione su un componente. 
 
 Elementi di un caso d'uso:
 \begin{itemize}
@@ -91,9 +92,9 @@ o eccezionali che potrebbero aver luogo durante l'esecuzione della funzione prin
 
 \subsubsection{Inclusione vs Estensione}
 Entrambe le relazioni aumentano il comportamento di un caso d'uso e possono essere comuni a più casi d'uso. 
-Nell'inclusione, un attore esegue sempre tutte le inclusioni, mentre nell'estensione l'attore può non esesguirle tutte.
+Nell'inclusione, un attore esegue sempre tutte le inclusioni, mentre nell'estensione l'attore può non eseguirle tutte.
 Quindi, un'inclusione viene usata se una funzionalità si ripete in più casi d'uso; 
-l'esetensione se si vogliono descrivere variazioni dalla funzionalità standard. 
+l'estensione se si vogliono descrivere variazioni dalla funzionalità standard. 
 
 \subsubsection{Generalizzazione}
 La generalizzazione aggiunge o modifica delle caratteristiche di base. 
@@ -105,21 +106,24 @@ A è generalizzazione di B se B condivide almeno le funzionalità di A.
 Definizione del contesto:
 \begin{enumerate}
 \item Identificazione attori e responsabilità
-\item Identificazione degli obiettivi da raggiungere per ciascun attore (Primi approssimazione use case)
-\item Valutare attori e use case e raffinarli (Divisione e accorpamento)
+\item Identificazione degli obiettivi da raggiungere per ciascun attore
+\item Valutare attori e casi d'uso e raffinarli (divisione e accorpamento)
 \item Trovare le relazioni di inclusione
 \item Trovare le relazioni di estensione
 \item Trovare le relazioni di generalizzazione
 \end{enumerate}
-
 Livello di dettaglio:
 \begin{itemize}
-\item Kite level - Livello molto astratto, definisce macro funzionalità
-\item Sea level - Livello intermedio, utile nella scoperta di funzionalità nascoste
-\item Fish level - Livello di dettaglio, da esso si individuano direttamente i requisiti del sistema
+\item \textbf{Kite level} - Livello molto astratto, definisce macro funzionalità
+\item \textbf{Sea level} - Livello intermedio, utile nella scoperta di funzionalità nascoste
+\item \textbf{Fish level} - Livello di dettaglio, da esso si individuano direttamente i requisiti del sistema
 \end{itemize}
 
 \section{Diagrammi delle Classi}
+
+
 \section{Diagrammi dei Package}
+
+
 \section{Diagrammi di Sequenza}
 \section{Diagrammi di Attività}
