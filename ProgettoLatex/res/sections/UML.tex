@@ -168,9 +168,6 @@ La visibilità si indica come per gli attributi, mentre la direzione può essere
 Un'operazione è detta \textit{modificatore} se modifica lo stato dell'oggetto; è detta \textit{query} se non modifica lo stato. \\
 \textbf{NB}: Non c'è una relazione diretta tra operazione e metodo.
 
-Un'\textbf{associazione} è descritta da una freccia che collega due classi; a volte ha un'etichetta ed è preferibile che sia un nome piuttosto che un verbo.
-Ogni associazione può avere la molteplicità che indica quanti oggetti possono far parte dell'associazione (1, 0..1, 0..*, *). 
-
 \`E possibile aggiungere \textbf{commenti} e note in un riquadro, collegandolo con una linea tratteggiata al punto di interesse.
 
 \subsection{Relazioni tra classi}
@@ -196,10 +193,15 @@ Maggiore è il codice condiviso tra due classi, maggiore è la dipendenza. Le di
 \textit{[Manca la lista di dipendenze UML]}
 
 \subsubsection{Associazione}
-In una normale relazione, è possibile usare classi di associazione che aggiungono attributi e operazioni alle associazioni. 
-\`E una sorta di classe intermedia; per ogni coppia di oggetti, esiste una sola istanza della classe associazione. 
+Un'associazione rappresenta una connessione logica tra due classi ed è descritta da una linea che collega due classi 
+(può essere orientata se ha senso in un solo verso); a volte ha un'etichetta ed è preferibile che sia un nome piuttosto che un verbo.
 
-La classe di associazione è collegata all'associazione con una linea tratteggiata.
+Ogni associazione può avere la molteplicità che indica il numero di istanze di una classe che possono essere associate ad una singola istanza dell'altra classe (1, 0..1, 0..*, *).
+
+\`E possibile usare classi di associazione che aggiungono attributi e operazioni alle associazioni e non direttamente alle classi. 
+\`E una sorta di classe intermedia; per ogni coppia di oggetti, esiste \textbf{una sola} istanza della classe associazione. 
+
+La classe di associazione è collegata all'associazione con una linea tratteggiata e si può leggere come "è un insieme di".
 
 \subsubsection{Aggregazione}
 Indica una relazione "parte di". Gli aggregati possono essere condivisi. Il \textit{diamante vuoto} della freccia è il punto di partenza della relazione.
@@ -207,7 +209,7 @@ Indica una relazione "parte di". Gli aggregati possono essere condivisi. Il \tex
 \subsubsection{Composizione}
 Come nell'aggregazione, indica una relazione "parte di", ma gli aggregati appartengono ad un solo oggetto e quest'ultimo è l'unico che può creare o distruggere le sue parti. 
 
-Il \textit{diamante pieno} della freccia è il punto di partenza della relazione.
+Il \textit{diamante pieno} della freccia è il punto di partenza della relazione e si può leggere come "è composto da".
 
 \subsubsection{Generalizzazione}
 La generalizzazione equivale all'ereditarietà nei linguaggi di programmazione. 
@@ -215,8 +217,8 @@ A generalizza B se ogni oggetto di B è anche oggetto di A. Le proprietà eredit
 
 Esistono anche la classi astratte e le interfacce. Le classi astratte hanno il nome in corsivo o \texttt{nome \{abstract\}}. La classe non è istanziabile  e le operazioni non hanno implementazioni [tutte??]. 
 
-Le interfacce si indicano con \texttt{<<interface>> nome} nella solita forma tabellare (UML 1) o si usa un pallino con sotto il nome e le operazioni (UML 2).
-Sono classi prive di implementazioni. 
+Le interfacce sono classi prive di implementazioni e si indicano con \texttt{<<interface>> nome} nella solita forma tabellare (UML 1) o si usa un pallino con sotto il nome e le operazioni (UML 2). 
+In entrambi i casi viene collegata alla classe che implementa l'interfaccia.
 
 \subsection{Diagrammi degli oggetti}
 \`E un grafo delle singole istanze, comprensivo di associazioni e valori delle proprietà.
