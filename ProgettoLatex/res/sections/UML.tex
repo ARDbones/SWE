@@ -236,8 +236,31 @@ nome dell'attributo = valore \\
 \end{table}
 
 \section{Diagrammi dei Package}
-I diagrammi dei Package fanno parte dei diagrammi di struttura. 
+I diagrammi dei package fanno parte dei diagrammi di struttura. 
 
+\subsection{I package}
+Un package è un raggruppamento di elementi UML (di solito classi) usato per creare un namespace.
+Un package può contenere più package, creando una struttura gerarchica.
+
+Ogni elemento deve avere un nome distinto e il nome completo è identificato da:
+\begin{verbatim}
+package::package::…::classe
+\end{verbatim}
+Gli elementi del package possono avere visibilità pubblica (+) o privata (-). \\
+Ci sono due modi di progettare i package:
+\begin{itemize}
+\item \textbf{Common Closure Principle} - le classi dello stesso package condividono la stessa causa di cambiamento;
+\item \textbf{Common Reuse Principle} - le classi dello stesso package dovrebbero essere sempre riusate insieme.
+\end{itemize}
+L'interfaccia di un package è l'insieme dei tipi pubblici del package.
+Un package è invece detto \textit{di interfaccia} se contiene interfacce e classi astratte. 
+
+
+\subsection{I diagrammi}
+
+I diagrammi dei package sono utili per documentare le dipendenze tra le classi. 
+Le dipendenze dovrebbero essere tutte dello stesso verso e si devono evitare le dipendenze circolari. 
+Più dipenenze entranti ha package, più il package stesso dovrebbe essere stabile.
 
 \section{Diagrammi di Sequenza}
 I diagrammi di sequenza fanno parte dei diagrammi di comportamento. 
