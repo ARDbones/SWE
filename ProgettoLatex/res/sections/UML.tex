@@ -15,6 +15,7 @@ I principali diagrammi trattati sono:
 
 \begin{figure}[H]
     \includegraphics[width=1\textwidth]{res/img/diagrammiUML}
+    \caption{Tipi di diagrammi in UML}
 \end{figure}
 
 \section{Diagrammi dei Casi d'Uso}
@@ -168,6 +169,13 @@ La visibilità si indica come per gli attributi, mentre la direzione può essere
 Un'operazione è detta \textit{modificatore} se modifica lo stato dell'oggetto; è detta \textit{query} se non modifica lo stato. \\
 \textbf{NB}: Non c'è una relazione diretta tra operazione e metodo.
 
+Di solito i membri di una classe si indicano in: % non sono 100% sicuro che sia uno standard UML
+\begin{itemize}
+\item \underline{sottolineato} se è statico
+\item \textit{corsivo} se è astratto
+\item MAIUSCOLO se è costante
+\end{itemize}
+
 \`E possibile aggiungere \textbf{commenti} e note in un riquadro, collegandolo con una linea tratteggiata al punto di interesse.
 
 \subsection{Relazioni tra classi}
@@ -215,7 +223,7 @@ Il \textit{diamante pieno} della freccia è il punto di partenza della relazione
 La generalizzazione equivale all'ereditarietà nei linguaggi di programmazione. 
 A generalizza B se ogni oggetto di B è anche oggetto di A. Le proprietà ereditate non vanno ripetute nella sottoclasse.
 
-Esistono anche la classi astratte e le interfacce. Le classi astratte hanno il nome in corsivo o \texttt{nome \{abstract\}}. La classe non è istanziabile  e alcune delle operazioni non hanno implementazioni. 
+Esistono anche la classi astratte e le interfacce. Le classi astratte hanno il nome in corsivo o \texttt{nome \{abstract\}}. La classe non è istanziabile e alcune delle operazioni non hanno implementazioni. 
 
 Le interfacce sono classi prive di implementazioni e si indicano con \texttt{<<interface>> nome} nella solita forma tabellare (UML 1) o si usa un pallino con sotto il nome e le operazioni (UML 2). 
 In entrambi i casi viene collegata alla classe che implementa l'interfaccia.
@@ -263,8 +271,11 @@ Le dipendenze dovrebbero essere tutte dello stesso verso e si devono evitare le 
 Più dipenenze entranti ha package, più il package stesso dovrebbe essere stabile.
 
 \section{Diagrammi di Sequenza}
-I diagrammi di sequenza fanno parte dei diagrammi di comportamento. 
+I diagrammi di sequenza fanno parte dei diagrammi di comportamento e servono per descrivere come un gruppo di oggetti implementano un comportamento.
+
+ 
+
 
 
 \section{Diagrammi di Attività}
-I diagrammi di attività fanno parte dei diagrammi di comportamento. 
+I diagrammi di attività fanno parte dei diagrammi di comportamento e si utilizzano per descrivere gli aspetti dinamici dei casi d'uso. 
