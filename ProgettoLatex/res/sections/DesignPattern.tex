@@ -23,6 +23,29 @@ I \textit{design pattern strutturali} sono relativi a come classi ed oggetti son
 La maggior parte dei pattern strutturali sono basati sugli oggetti.
 Di seguito andremo ad analizzare i principali pattern strutturali conosciuti.
 \subsection{Adapter}
+\subsubsection{Cos'è?}
+Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere basato sia su \textit{classi} che su \textit{oggetti}.\\
+Il suo obiettivo è fornire una soluzione al problema dell'interoperabilità tra interfacce differenti.
+\subsubsection{Applicabilità}
+L'uso di questo pattern risulta utile quando interfacce di classi differenti devono poter comunicare tra loro, oppure quando si desidera che l'invocazione di un metodo di un oggetto da parte dei client avvenga in maniera "indiretta", ovvero che invece di richiamare il metodo direttamente, si passi attraverso dei metodi "pubblici" che fanno da tramite con l'esterno. Questo permette alla classe di subire motifiche future mantenendo la retrocompatibilità.
+
+\subsubsection{Composizione}
+Adapter può essere basato su classi, utilizzando l'ereditarietà multipla per adattare interfacce diverse con il meccanismo dell'ereditarietà, oppure sulla composizione di oggetti.\\
+I partecipanti del pattern sono:
+\begin{itemize}
+	\item Adaptee: definisce l'interfaccia che necessità di essere adattata;
+	\item Target: definisce l'interfaccia che usa il Client;
+	\item Client: collabora con gli oggetti in conformità con l'interfaccia Target;
+	\item Adapter: adatta l'interfaccia Adaptee all'interfaccia Target.
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{res/img/DP_Adapter}
+	\caption{Diagramma UML del Pattern Adapter}
+	\label{fig:dpadapter}
+\end{figure}
+
 \subsection{Bridge}
 \subsection{Composite}
 \subsection{Container}
