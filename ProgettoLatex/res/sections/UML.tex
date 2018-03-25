@@ -14,6 +14,7 @@ I principali diagrammi trattati sono:
 \end{itemize} 
 
 \begin{figure}[H]
+\centering
     \includegraphics[width=1\textwidth]{res/img/diagrammiUML}
     \caption{Tipi di diagrammi in UML}
 \end{figure}
@@ -76,6 +77,7 @@ I diagrammi dei casi d'uso sono grafi con gli attori e i casi d'uso come nodi, m
 \end{itemize}
 
 \begin{figure}[H]
+\centering
     \includegraphics[width=1\textwidth]{res/img/componentiUseCaseDiagram}
     \caption{Componenti diagrammi dei Casi d'Uso (\textit{Slide E02})}
 \end{figure}
@@ -190,6 +192,7 @@ Due classi possono essere collegate da diversi tipi di relazione, ognuna rappres
 \end{itemize}
 
 \begin{figure}[H]
+\centering
     \includegraphics[width=1\textwidth]{res/img/relazioniClassi}
     \caption{Relazioni tra classi (\textit{Slide E03})}
 \end{figure}
@@ -273,9 +276,32 @@ Più dipenenze entranti ha package, più il package stesso dovrebbe essere stabi
 \section{Diagrammi di Sequenza}
 I diagrammi di sequenza fanno parte dei diagrammi di comportamento e servono per descrivere come un gruppo di oggetti implementano un comportamento.
 
- 
+Gli elementi principali del diagramma sono:
+\begin{itemize}
+\item Partecipanti
+\item Messaggi
+\end{itemize}
 
+I partecipanti sono le entità che detengono il flusso del caso d'uso e sono rappresentati da un riquadro con dentro \texttt{nome : Classe}.
+Ogni partecipante ha la propria barra di attivazione che indica quando è attivo.
+I partecipanti sono posti parallelamente e il flusso temporale va dall'alto verso il basso.
 
+I messaggi (o segnali) sono dati e operazioni scambiati tra i partecipanti. 
+Sono rappresentate da frecce orizzontali che vanno da un partecipante all'altro. Ci sono diversi tipi di messaggi:
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.8\textwidth]{res/img/messaggiDiagrammiSequenza}
+    \caption{Tipi di messaggi (\textit{Slide E05})}
+\end{figure}
+
+Nei messaggi sincroni il chiamante rimane in attesa di risposta, mentre in quelli asincroni non rimane in attesa.
+
+I messaggi possono essere ricorsivi, ovvero la freccia esce da un partecipante e punta lo stesso partecipante (un ciclo).
+
+In UML 2 sono stati aggiunti i frame di interazione\footnote{Argomento non approfondito.}, dei riquadri che permettono di rappresentare operatori per cicli e condizioni, ma rimane più efficiente la rappresentazione di quest'ultimi tramite i diagrammi delle attività. 
 
 \section{Diagrammi di Attività}
 I diagrammi di attività fanno parte dei diagrammi di comportamento e si utilizzano per descrivere gli aspetti dinamici dei casi d'uso. 
+
+
