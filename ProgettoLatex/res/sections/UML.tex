@@ -23,6 +23,12 @@ I principali diagrammi trattati sono:
 
 I diagrammi dei Casi d'Uso fanno parte dei diagrammi di comportamento. 
 
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.5\textwidth]{res/img/esempioDiagrammaUseCase}
+    \caption{Esempio di diagramma di Caso d'Uso}
+\end{figure}
+
 \subsection{I casi d'uso}
 Un caso d'uso è un insieme di scenari (sequenze di azioni) che hanno in comune uno scopo finale (obiettivo) per un utente (attore),
 \textit{cioè} un caso d'uso è una situazione nella quale il sistema viene utilizzato per soddisfare uno o più bisogno dell'utente.
@@ -124,6 +130,12 @@ Livello di dettaglio:
 
 \section{Diagrammi delle Classi}
 I diagrammi delle classi fanno parte dei diagrammi di struttura e si usano per rappresentare i tipi di oggetti che fanno parte di un sistema e le relazioni statiche fra i tipi. 
+
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.9\textwidth]{res/img/esempioDiagrammaClassi}
+    \caption{Esempio di diagramma delle Classi}
+\end{figure}
 
 \subsection{Le classi}
 Una classe si rappresenta:
@@ -276,6 +288,12 @@ Più dipenenze entranti ha package, più il package stesso dovrebbe essere stabi
 \section{Diagrammi di Sequenza}
 I diagrammi di sequenza fanno parte dei diagrammi di comportamento e servono per descrivere come un gruppo di oggetti implementano un comportamento.
 
+\begin{figure}[H]
+\centering
+    \includegraphics[width=0.9\textwidth]{res/img/esempioDiagrammaSequenza}
+    \caption{Esempio di diagramma di sequenza}
+\end{figure}
+
 Gli elementi principali del diagramma sono:
 \begin{itemize}
 \item Partecipanti
@@ -291,17 +309,70 @@ Sono rappresentate da frecce orizzontali che vanno da un partecipante all'altro.
 
 \begin{figure}[H]
 \centering
-    \includegraphics[width=0.8\textwidth]{res/img/messaggiDiagrammiSequenza}
-    \caption{Tipi di messaggi (\textit{Slide E05})}
+    \includegraphics[width=0.6\textwidth]{res/img/messaggiDiagrammiSequenza}
 \end{figure}
 
 Nei messaggi sincroni il chiamante rimane in attesa di risposta, mentre in quelli asincroni non rimane in attesa.
 
 I messaggi possono essere ricorsivi, ovvero la freccia esce da un partecipante e punta lo stesso partecipante (un ciclo).
 
-In UML 2 sono stati aggiunti i frame di interazione\footnote{Argomento non approfondito.}, dei riquadri che permettono di rappresentare operatori per cicli e condizioni, ma rimane più efficiente la rappresentazione di quest'ultimi tramite i diagrammi delle attività. 
+In UML 2 sono stati aggiunti i frame di interazione, dei riquadri che permettono di rappresentare operatori per cicli e condizioni, ma rimane più efficiente la rappresentazione di quest'ultimi tramite i diagrammi delle attività. 
 
 \section{Diagrammi di Attività}
-I diagrammi di attività fanno parte dei diagrammi di comportamento e si utilizzano per descrivere gli aspetti dinamici dei casi d'uso. 
+I diagrammi di attività fanno parte dei diagrammi di comportamento e si utilizzano per descrivere gli aspetti dinamici dei casi d'uso.
 
+\begin{figure}[H]
+\centering
+    \includegraphics[scale=0.5]{res/img/esempioDiagrammaAttivita}
+    \caption{Esempio di diagramma delle attività}
+\end{figure}
+Un'attività è un insieme di più azioni ed è composta da:
+\begin{figure}[H]
+\centering
+    \includegraphics[scale=0.3]{res/img/elementiDiagrammaAttivita}
+\end{figure}
+\begin{itemize}
+\item \textbf{Nodo iniziale}, da dove parte l'esecuzione del processo
+\item \textbf{Nodo azione}, indica un'azione ed è rappresentato da un riquadro con gli angoli curvi
+\item \textbf{Fork}, punto da cui inizia l'elaborazione parallela
+\item \textbf{Join}, punto in cui si sincronizzano processi paralleli
+\item Decisione/\textbf{Branch}, punto in cui l'esecuzione si divide in due o più percorsi alternativi
+\item \textbf{Merge}, punto di fine Branch
+\item \textbf{Nodo di fine attività}, termina l'esecuzione
+\item \textbf{Nodo di fine flusso}, termina un flusso di esecuzione ma non l'attività intera (ad esempio termina un processo di un fork)
+\end{itemize}
+L'esecuzione del processo produce e consuma \textit{token}:
+\begin{itemize}
+\item Nodo iniziale - produce un token
+\item Nodo finale - consuma un token
+\item Fork - produce un token per ogni processo
+\item Join - consuma tutti i token in ingresso e ne produce uno
+\end{itemize}
 
+Un diagramma può essere diviso in \textbf{partizioni} (\textit{swimlanes}) per indicare di chi è la responsabilità dell'esecuzione. 
+\`E utile quando l'esecuzione si divide in processi paralleli.
+
+Le frecce che collegano le azioni possono avere delle etichette dette \textbf{guardie}, indicate tra parentesi quadre, le quali sono condizioni che permettono il passaggio da un azione all'altra.
+
+I \textbf{pin} rappresentano il passaggio di parametri tra azioni e si usano con dei quadratini alle estremità della freccia.
+\begin{figure}[H]
+\centering
+    \includegraphics[scale=0.5]{res/img/pin}
+\end{figure}
+
+Esistono nodi azione specializzati per l'invio e la ricezione di \textbf{segnali}.
+L'invio dei segnali è asincrono e non blocca l'attività, mentre la ricezione si attiva quando ha token in ogni arco entrante.
+
+Un nodo che riceve eventi temporali (la "clessidra"), è considerato un \textit{timeout} se ha archi entranti, mentre se non ne ha, è un evento ripetuto.
+\begin{figure}[H]
+\centering
+    \includegraphics[scale=0.5]{res/img/segnali}
+\end{figure}
+
+La \textbf{regione di espansione} permette di ripetere delle attività su una collezione. 
+Ogni elemento è un token e solo un token esce dalla regione.
+\begin{figure}[H]
+\centering
+    \includegraphics[scale=0.5]{res/img/regioneEspansione}
+    \caption{Regione d'espansione}
+\end{figure}
