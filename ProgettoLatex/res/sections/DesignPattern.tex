@@ -200,5 +200,54 @@ Visitor è utile quando:
 	\item è necessario eseguire svariate operazioni indipendenti e non relazionate tra loro sugli oggetti di una struttura composta, ma non si vuole sovraccaricare le interfacce delle loro classi. Riunendo le operazioni correlate in ogni Visitor è possibile inserirle nei programmi solo dove necessario;
 	\item le classi che costituiscono la struttura composta sono raramente suscettibili di modifica, ma è necessario aggiungere spesso operazioni sui rispettivi oggetti. Ogni intervento sulle operazioni richiede la modifica o l'estensione di un Visitor, mentre ogni modifica alle classi della struttura vincola alla ridefinizione delle interfacce di tutti i Visitor, compito che può risultare estremamente complesso nei progetti di una certa dimensione.
 \end{itemize}
+\section{Design Pattern Architetturali}
+I pattern architetturali operano ad un livello diverso (e più ampio) rispetto ai design pattern. Descrivono lo schema organizzativo della struttura che caratterizza un sistema software. In genere questi pattern individuano le parti del sistema a cui sono associate responsabilità omogenee e le relazioni che esistono tra i diversi sottosistemi.
+Alcuni esempi di questi pattern sono:
+\subsection{Client-server}
+Indica un'architettura di rete nella quale genericamente un computer client o terminale si connette ad un server per la fruizione di un certo servizio, quale ad esempio la condivisione di una certa risorsa hardware/software con altri client, appoggiandosi alla sottostante architettura protocollare.
 
+Più semplicemente, i sistemi client/server sono un'evoluzione dei sistemi basati sulla condivisione semplice delle risorse: la presenza di un server permette ad un certo numero di client di condividerne le risorse, lasciando che sia il server a gestire gli accessi alle risorse per evitare conflitti di utilizzazione tipici dei primi sistemi informatici.
 
+Le reti locali aziendali (LAN), la rete Internet, i sistemi informatici e i sistemi operativi sono organizzati sotto forma di una tipica architettura client-server per la fruizione dei rispettivi servizi.
+\subsection{Model-View-Controller MVC}
+è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in grado di separare la logica di presentazione dei dati dalla logica di business.
+
+Il componente centrale del MVC, il modello, cattura il comportamento dell'applicazione in termini di dominio del problema, indipendentemente dall'interfaccia utente. Il modello gestisce direttamente i dati, la logica e le regole dell'applicazione. Una vista può essere una qualsiasi rappresentazione in output di informazioni, come un grafico o un diagramma. Sono possibili viste multiple delle stesse informazioni, come ad esempio un grafico a barre per la gestione e la vista tabellare per l'amministrazione. La terza parte, il controller, accetta l'input e lo converte in comandi per il modello e/o la vista.
+
+l pattern è basato sulla separazione dei compiti fra i componenti software che interpretano tre ruoli principali:
+\begin{itemize}
+\item il \textbf{model} fornisce i metodi per accedere ai dati utili all'applicazione;
+\item il \textbf{view} visualizza i dati contenuti nel model e si occupa dell'interazione con utenti e agenti;
+\item il \textbf{controller} riceve i comandi dell'utente (in genere attraverso il view) e li attua modificando lo stato degli altri due componenti.
+\end{itemize}
+Questo schema, fra l'altro, implica anche la tradizionale separazione fra la logica applicativa (in questo contesto spesso chiamata "logica di business"), a carico del controller e del model, e l'interfaccia utente a carico del view.
+
+I dettagli delle interazioni fra questi tre oggetti software dipendono molto dalle tecnologie usate (linguaggio di programmazione, eventuali librerie, middleware e via dicendo) e dal tipo di applicazione (per esempio se si tratta di un'applicazione web, o di un'applicazione desktop). Quasi sempre la relazione fra view e model è descrivibile anche come istanza del pattern Observer. A volte, quando è necessario cambiare il comportamento standard dell'applicazione a seconda delle circostanze, il controller implementa anche il pattern Strategy.
+
+\subsection{Model-View-ViewModel}
+MVVM è un pattern architetturale e consiste nella separazione degli aspetti della nostra applicazione in tre componenti:
+\begin{itemize}
+\item Model;
+\item View;
+\item ViewModel.
+\end{itemize}
+permettendoci di evitare di mescolare il codice che fornisce la logica a quello che gestisce la UI.
+Più precisamente:
+\begin{itemize}
+	\item Il Model rappresenta il punto di accesso ai dati. Trattasi di una o più classi che leggono dati dal DB, oppure da un servizio Web di qualsivoglia natura;
+	\item la View rappresenta la vista dell’applicazione, l’interfaccia grafica che mostrerà i dati;
+	\item il ViewModel è il punto di incontro tra la View e il Model: i dati ricevuti da quest’ultimo sono elaborati per essere presentati e passati alla View.
+\end{itemize}
+
+Il fulcro del funzionamento di questo pattern è la creazione di un componente, il ViewModel appunto, che rappresenta tutte le informazioni e i comportamenti della corrispondente View. La View si limita infatti, a visualizzare graficamente quanto esposto dal ViewModel, a riflettere in esso i suoi cambi di stato oppure ad attivarne dei comportamenti.
+\subsection{Dependency Injection}
+Dependency injection è un design pattern il cui scopo è quello di semplificare lo sviluppo e migliorare la testabilità di software di grandi dimensioni.
+
+Per utilizzare tale design pattern è sufficiente dichiarare le dipendenze che un componente necessita (dette anche interface contracts). Quando il componente verrà istanziato, un iniettore si prenderà carico di risolvere le dipendenze (attuando dunque l'inversione del controllo). Se è la prima volta che si tenta di risolvere una dipendenza l'injector istanzierà il componente dipendente, lo salverà in un contenitore di istanze e lo ritornerà. Se non è la prima volta, allora ritornerà la copia salvata nel contenitore. Una volta risolte tutte le dipendenze, il controllo può tornare al componente applicativo.
+
+Il pattern Dependency Injection coinvolge almeno tre elementi:
+\begin{itemize}
+\item una componente dipendente;
+\item la dichiarazione delle dipendenze del componente, definite come interface contracts;
+\item un injector (chiamato anche provider o container) che crea, a richiesta, le istanze delle classi che implementano delle dependency interfaces.
+\end{itemize}
