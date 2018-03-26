@@ -65,6 +65,70 @@ Flyweight è un Design pattern che permette di separare la parte variabile di un
 
 Ad esempio: progettando un word processor si potrebbe creare un oggetto per ogni carattere digitato. L'oggetto glifo dovrebbe contenere informazioni come il font, la dimensione e il colore di ogni carattere. Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
 \section{Design Pattern Creazionali}
+I pattern creazionali forniscono un’astrazione del processo di creazione delle istanze delle classi, favorendo l’indipendenza del sistema dalle modalità di creazione e dai tipi concreti effettivamente generati.
+
+Ci sono due aspetti che caratterizzano i pattern appartenenti a questa categoria:
+\begin{itemize}
+	\item la capacità di mascherare al client la conoscenza degli oggetti concreti creati, sfruttando tipi astratti per definire le interfacce di riferimento;
+	\item la capacità di nascondere le modalità di creazione all’utilizzatore dell’istanza.
+\end{itemize}
+Queste due caratteristiche conferiscono una notevole flessibilità al processo di creazione, dal momento che ciò che viene creato in generale risulta essere disaccoppiato dal contesto di utilizzo. Infatti solo l’oggetto creatore conosce il tipo effettivo dell’istanza e ciò che viene esternamente reso pubblico è unicamente l’interfaccia di riferimento.
+Tra i principali pattern creazionali troviamo:
+\subsection{Abstract factory}
+L'Abstract Factory fornisce un'interfaccia per creare famiglie di oggetti connessi o dipendenti tra loro, in modo che non ci sia necessità da parte dei client di specificare i nomi delle classi concrete all'interno del proprio codice.
+
+In questo modo si permette che un sistema sia indipendente dall'implementazione degli oggetti concreti e che il client, attraverso l'interfaccia, utilizzi diverse famiglie di prodotti.
+
+Questo pattern è utile quando:
+\begin{itemize}
+	\item si vuole un sistema indipendente da come gli oggetti vengono creati, composti e rappresentati;
+	\item si vuole permettere la configurazione del sistema come scelta tra diverse famiglie di prodotti;
+	\item si vuole che i prodotti che sono organizzati in famiglie siano vincolati ad essere utilizzati con prodotti della stessa famiglia;
+	\item si vuole fornire una libreria di classi mostrando solo le interfacce e nascondendo le implementazioni.
+\end{itemize}
+\subsection{Builder}
+l design pattern Builder, separa la costruzione di un oggetto complesso dalla sua rappresentazione cosicché il processo di costruzione stesso possa creare diverse rappresentazioni.
+
+L'algoritmo per la creazione di un oggetto complesso è indipendente dalle varie parti che costituiscono l'oggetto e da come vengono assemblate.
+
+Ciò ha l'effetto immediato di rendere più semplice la classe, permettendo a una classe builder separata di focalizzarsi sulla corretta costruzione di un'istanza e lasciando che la classe originale si concentri sul funzionamento degli oggetti. Questo è particolarmente utile quando volete assicurarvi che un oggetto sia valido prima di istanziarlo, e non volete che la logica di controllo appaia nei costruttori degli oggetti. Un builder permette anche di costruire un oggetto passo-passo, cosa che si può verificare quando si fa il parsing di un testo o si ottengono i parametri da un'interfaccia interattiva.
+\subsection{Factory method}
+il Factory Method indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.
+
+La creazione di un oggetto può, spesso, richiedere processi complessi la cui collocazione all'interno della classe di composizione potrebbe non essere appropriata. Esso può, inoltre, comportare la duplicazione di codice, richiedere informazioni non accessibili alla classe di composizione, o non provvedere un sufficiente livello di astrazione. Il factory method indirizza questi problemi definendo un metodo separato per la creazione degli oggetti; tale metodo può essere ridefinito dalle sottoclassi per definire il tipo derivato di prodotto che verrà effettivamente creato.
+
+Il pattern factory può essere utilizzato quando:
+\begin{itemize}
+	\item la creazione di un oggetto preclude il suo riuso senza una significativa duplicazione di codice;
+	\item la creazione di un oggetto richiede l'accesso ad informazioni o risorse che non dovrebbero essere contenute nella classe di composizione;
+	\item la gestione del ciclo di vita degli oggetti gestiti deve essere centralizzata in modo da assicurare un comportamento coerente all'interno dell'applicazione.
+\end{itemize}
+La gestione del ciclo di vita degli oggetti gestiti deve essere centralizzata in modo da assicurare un comportamento coerente all'interno dell'applicazione.
+\subsection{Lazy initialization}
+si dice Lazy initialization (inizializzazione pigra) la tattica di istanziare un oggetto, inizializzare una variabile, effettuare un calcolo od eseguire un processo solo nel momento in cui tale operazione è richiesta.
+
+Tipicamente, questo si ottiene memorizzando in un flag l'avvenimento di un determinato processo. Ogni volta che avviene un certo evento, si esamina il flag. Se questo è abbassato, si continua, altrimenti si inizializza una certa variabile o si istanzia un certo oggetto.
+
+Dal punto di vista dei design pattern, la lazy initialization si usa spesso con un factory method. Questo combina tre idee:
+\begin{itemize}
+	\item usare un factory method per instanziare una classe;
+	\item memorizzare l'istanza di una mappa, in modo tale da poter riprendere la stessa istanza la volta successiva che si richiede la stessa con certi parametri (confronta con un singleton);
+	\item usare la lazy initialization per istanziare un oggetto la prima volta che è richiesto.
+\end{itemize}
+
+\subsection{Prototype pattern}
+Prototype permette di creare nuovi oggetti clonando un oggetto iniziale, detto appunto prototipo. A differenza di altri pattern come Abstract factory o Factory method permette di specificare nuovi oggetti a tempo d'esecuzione (run-time), utilizzando un gestore di prototipi (prototype manager) per salvare e reperire dinamicamente le istanze degli oggetti desiderati.
+
+Può rivelarsi utile quando:
+\begin{itemize}
+\item le classi da istanziare sono specificate solamente a tempo d'esecuzione, per cui un codice statico non può occuparsi della creazione dell'oggetto, oppure
+\item per evitare di costruire una gerarchia di factory in parallelo a una gerarchia di prodotti, come avviene utilizzando Abstract factory e Factory method, oppure
+\item quando le istanze di una classe possono avere soltanto un limitato numero di stati, per cui può essere più conveniente clonare al bisogno il prototipo corrispondente piuttosto che creare l'oggetto e configurarlo ogni volta.
+\end{itemize}
+\subsection{Singleton}
+Singleton ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
+
+L'implementazione più semplice di questo pattern prevede che la classe singleton abbia un unico costruttore privato, in modo da impedire l'istanziazione diretta della classe. La classe fornisce inoltre un metodo "getter" statico che restituisce l'istanza della classe (sempre la stessa), creandola preventivamente o alla prima chiamata del metodo, e memorizzandone il riferimento in un attributo privato anch'esso statico. Il secondo approccio si può classificare come basato sul principio della lazy initialization (letteralmente "inizializzazione pigra") in quanto la creazione dell'istanza della classe viene rimandata nel tempo e messa in atto solo quando ciò diventa strettamente necessario (al primo tentativo di uso).
 
 \section{Design Pattern Comportamentali}
 
