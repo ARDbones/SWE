@@ -23,37 +23,47 @@ I \textit{design pattern strutturali} sono relativi a come classi ed oggetti son
 La maggior parte dei pattern strutturali sono basati sugli oggetti.
 Di seguito andremo ad analizzare i principali pattern strutturali conosciuti.
 \subsection{Adapter}
-\subsubsection{Cos'è?}
 Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere basato sia su \textit{classi} che su \textit{oggetti}.\\
 Il suo obiettivo è fornire una soluzione al problema dell'interoperabilità tra interfacce differenti.
-\subsubsection{Applicabilità}
+
 L'uso di questo pattern risulta utile quando interfacce di classi differenti devono poter comunicare tra loro, oppure quando si desidera che l'invocazione di un metodo di un oggetto da parte dei client avvenga in maniera "indiretta", ovvero che invece di richiamare il metodo direttamente, si passi attraverso dei metodi "pubblici" che fanno da tramite con l'esterno. Questo permette alla classe di subire motifiche future mantenendo la retrocompatibilità.
 
-\subsubsection{Composizione}
-Adapter può essere basato su classi, utilizzando l'ereditarietà multipla per adattare interfacce diverse con il meccanismo dell'ereditarietà, oppure sulla composizione di oggetti.\\
-I partecipanti del pattern sono:
-\begin{itemize}
-	\item Adaptee: definisce l'interfaccia che necessità di essere adattata;
-	\item Target: definisce l'interfaccia che usa il Client;
-	\item Client: collabora con gli oggetti in conformità con l'interfaccia Target;
-	\item Adapter: adatta l'interfaccia Adaptee all'interfaccia Target.
-\end{itemize}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.7\linewidth]{res/img/DP_Adapter}
-	\caption{Diagramma UML del Pattern Adapter}
-	\label{fig:dpadapter}
-\end{figure}
+Adapter può essere basato su classi, utilizzando l'ereditarietà multipla per adattare interfacce diverse con il meccanismo dell'ereditarietà, oppure sulla composizione di oggetti.
 
 \subsection{Bridge}
-\subsection{Composite}
-\subsection{Container}
-\subsection{Decorator}
-\subsection{Façade}
-\subsection{Proxy}
-\subsection{Flyweight}
+Il bridge pattern permette di separare l'interfaccia di una classe (che cosa si può fare con la classe) dalla sua implementazione (come lo fa). In tal modo si può usare l'ereditarietà per fare evolvere l'interfaccia o l'implementazione in modo separato.
 
+\subsection{Composite}
+Questo pattern permette di trattare un gruppo di oggetti come se fossero l'istanza di un oggetto singolo. Il design pattern Composite organizza gli oggetti in una struttura ad albero, nella quale i nodi sono delle composite e le foglie sono oggetti semplici.\\
+
+È utilizzato per dare la possibilità ai client di manipolare oggetti singoli e composizioni in modo uniforme.
+\\
+Il Composite può essere usato quando i client dovrebbero ignorare la differenza tra oggetti composti e oggetti singoli. Se durante lo sviluppo i programmatori scoprono che stanno usando più oggetti nello stesso modo, e spesso il codice per gestirli è molto simile, il Composite rappresenta una buona scelta di rifattorizzazione: in questa situazione, è meno complesso trattare oggetti primitivi e composti in modo omogeneo.
+
+\subsection{Container}
+Il Container Pattern permette in certi casi una migliore gestione dell'Incapsulamento. Più che un costrutto, il Container è una buona pratica da seguire per scrivere codice più intelligente e soprattutto sicuro. 
+ Container consiste nel creare una nuova classe nella quale sarà assegnato un oggetto della nostra classe di partenza come campo della classe, e successivamente la nuova classe creata implementerà un metodo nel quale inseriremo i nuovi passi dell'algoritmo, oltre ad una chiamata all'algoritmo di base tramite l'istanza della classe madre.
+\subsection{Decorator}
+l design pattern decorator consente di aggiungere nuove funzionalità ad oggetti già esistenti. Questo viene realizzato costruendo una nuova classe decoratore che "avvolge" l'oggetto originale. Al costruttore del decoratore si passa come parametro l'oggetto originale. È altresì possibile passarvi un differente decoratore. In questo modo, più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
+
+Questo pattern si pone come valida alternativa all'uso dell'ereditarietà singola o multipla. Con l'ereditarietà, infatti, l'aggiunta di funzionalità avviene staticamente secondo i legami definiti nella gerarchia di classi e non è possibile ottenere al run-time una combinazione arbitraria delle funzionalità, né la loro aggiunta/rimozione.
+
+\subsection{Façade}
+Indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi.
+
+Il vantaggio è ancora più evidente se questo pattern viene utilizzato in una libreria software, poiché rende indipendente l'implementazione della classe Client dall'implementazione dei vari oggetti Class1, Class2, etc.
+
+Nelle librerie standard Java (Java 2 Platform, Standard Edition) questo pattern viene spesso usato; si considerino ad esempio tutte le classi disponibili per fare il rendering del testo o delle forme geometriche, un programmatore può ignorare tutte queste classi e utilizzare unicamente le classi façade (Font e Graphics) che offrono un'interfaccia più semplice e omogenea.
+\subsection{Proxy}
+Nella sua forma più generale, un proxy è una classe che funziona come interfaccia per qualcos'altro. L'altro potrebbe essere qualunque cosa: una connessione di rete, un grosso oggetto in memoria, un file e altre risorse che sono costose o impossibili da duplicare.
+
+Un esempio ben conosciuto di proxy pattern è la tecnica reference counting dei puntatori.
+
+Nelle situazioni in cui molte copie di un oggetto complesso devono esistere, il proxy pattern può essere adottato per incorporare il Flyweight pattern per ridurre l'occupazione di memoria dell'oggetto. Tipicamente viene creata un'istanza di oggetto complesso, e molteplici oggetti proxy, ognuno dei quali contiene un riferimento al singolo oggetto complesso. Ogni operazione svolta sui proxy viene trasmessa all'oggetto originale. Una volta che tutte le istanze del proxy sono distrutte, l'oggetto in memoria può essere deallocato.
+\subsection{Flyweight}
+Flyweight è un Design pattern che permette di separare la parte variabile di una classe dalla parte che può essere riutilizzata, in modo tale da condividere quest'ultima fra differenti istanze. L'oggetto Flyweight deve essere un oggetto immutabile, per permettere la condivisione tra diversi client e thread.\\
+
+Ad esempio: progettando un word processor si potrebbe creare un oggetto per ogni carattere digitato. L'oggetto glifo dovrebbe contenere informazioni come il font, la dimensione e il colore di ogni carattere. Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
 \section{Design Pattern Creazionali}
 
 \section{Design Pattern Comportamentali}
