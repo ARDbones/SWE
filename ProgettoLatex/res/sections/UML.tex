@@ -213,8 +213,6 @@ Due classi possono essere collegate da diversi tipi di relazione, ognuna rappres
 Si ha una relazione di dipendenza se la modifica della definizione di un elemento può cambiare la definizione del secondo elemento. 
 Maggiore è il codice condiviso tra due classi, maggiore è la dipendenza. Le dipendenze sono da minimizzare.
 
-\textit{[Manca la lista di dipendenze UML]}
-
 \subsubsection{Associazione}
 Un'associazione rappresenta una connessione logica tra due classi ed è descritta da una linea che collega due classi 
 (può essere orientata se ha senso in un solo verso); a volte ha un'etichetta ed è preferibile che sia un nome piuttosto che un verbo.
@@ -317,6 +315,12 @@ Nei messaggi sincroni il chiamante rimane in attesa di risposta, mentre in quell
 I messaggi possono essere ricorsivi, ovvero la freccia esce da un partecipante e punta lo stesso partecipante (un ciclo).
 
 In UML 2 sono stati aggiunti i frame di interazione, dei riquadri che permettono di rappresentare operatori per cicli e condizioni, ma rimane più efficiente la rappresentazione di quest'ultimi tramite i diagrammi delle attività. 
+Alcuni operatori dei frame sono:
+\begin{itemize}
+\item \texttt{alt} per i frammenti alternativi (if..else)
+\item \texttt{opt} per i frammenti opzionali (if)
+\item \texttt{loop} per i cicli (while)
+\end{itemize}
 
 \section{Diagrammi di Attività}
 I diagrammi di attività fanno parte dei diagrammi di comportamento e si utilizzano per descrivere gli aspetti dinamici dei casi d'uso.
@@ -336,7 +340,7 @@ Un'attività è un insieme di più azioni ed è composta da:
 \item \textbf{Nodo azione}, indica un'azione ed è rappresentato da un riquadro con gli angoli curvi
 \item \textbf{Fork}, punto da cui inizia l'elaborazione parallela
 \item \textbf{Join}, punto in cui si sincronizzano processi paralleli
-\item Decisione/\textbf{Branch}, punto in cui l'esecuzione si divide in due o più percorsi alternativi
+\item Decisione/\textbf{Branch}, punto in cui l'esecuzione si divide in due o più percorsi alternativi; ogni branch ha una guardia tra parentesi quadre che indica la condizione
 \item \textbf{Merge}, punto di fine Branch
 \item \textbf{Nodo di fine attività}, termina l'esecuzione
 \item \textbf{Nodo di fine flusso}, termina un flusso di esecuzione ma non l'attività intera (ad esempio termina un processo di un fork)
