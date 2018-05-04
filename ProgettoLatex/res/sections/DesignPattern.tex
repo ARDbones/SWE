@@ -12,22 +12,32 @@ Un \textit{design pattern} è costituito da:
 \begin{itemize}
 	\item \textit{il nome}, costituito da una o più parole che siano rappresentative del pattern stesso;
 	\item \textit{il problema}, ovvero la descrizione della situazione alla quale si può applicare il pattern. Può comprendere la descrizione di classi o di problemi di progettazione specifici, come anche una lista di condizioni perché sia necessario l'utilizzo del pattern;
-	\item \textit{la soluzione}, che descrive gli elementi che costituiscono il progetto, le relazioni e le relative implicazioni, senza addentrarsi in una specifica implementazione. In poche parole bisogna rappresentare un problema astratto e la relativa configurazione di elementi adatta a risolverlo.
-	\item \textit{le conseguenze}, risultati e vincoli che derivano dall'applicazione del pattern. Le conseguenze comprendono considerazioni di tempo e di spazio, possono descrivere implicazioni del pattern con alcuni linguaggi di programmazione e l'impatto con il resto del progetto. Sono fondamentali in quanto aiutano nella scelta dei pattern.
+	\item \textit{la soluzione}, che descrive gli elementi che costituiscono il progetto, le relazioni e le relative implicazioni, senza addentrarsi in una specifica implementazione.
+	In poche parole bisogna rappresentare un problema astratto e la relativa configurazione di elementi adatta a risolverlo.
+	\item \textit{le conseguenze}, risultati e vincoli che derivano dall'applicazione del pattern. 
+	Le conseguenze comprendono considerazioni di tempo e di spazio, possono descrivere implicazioni del pattern con alcuni linguaggi di programmazione e l'impatto con il resto del progetto.
+	Sono fondamentali in quanto aiutano nella scelta dei pattern.
 \end{itemize}
-I design pattern possono essere classificati in tre principali categorie, che risolvono problemi diversi. Questi tipi di pattern sono di tipo \textit{Strutturale, Creazionale e Comportamentale}, e verranno approfonditi nei prossimi paragrafi\footnote{Le sezioni con \textbf{+} a pedice riguardano design pattern non trattati a lezione}.
+I design pattern possono essere classificati in tre principali categorie\footnote{Le sezioni con \textbf{+} a pedice riguardano design pattern non trattati a lezione}, che risolvono problemi diversi:
+\begin{itemize}
+	\item Strutturale, delegati alla rappresentazione degli oggetti;
+	\item Creazionale, delegati alla gestione della costruzione degli oggetti;
+	\item Comportamentale, delegati al comportamento dinamico degli oggetti.
+\end{itemize} 
+Inoltre esistono pattern architetturali utilizzati più ad alto livello.
 
 \section{Design Pattern Strutturali}
-I \textit{design pattern strutturali} sono relativi a come classi ed oggetti sono composti per formare strutture più complesse. In generale possiamo distinguere due tipologie di pattern strutturali:
+I \textit{design pattern strutturali} sono relativi a come classi ed oggetti sono composti per formare strutture più complesse. 
+In generale possiamo distinguere due tipologie di pattern strutturali:
 \begin{itemize}
-\item basati su \textbf{classi}, i quali utilizzano l'ereditarietà per generare classi che combinano le proprietà di classi base.
+\item basati su \textbf{classi}, i quali utilizzano l'ereditarietà per generare classi che combinano le proprietà di classi base;
 \item basati su \textbf{oggetti}, i quali mostrano come comporre gli oggetti al fine di estendere, in fase di esecuzione, le funzionalità di una classe (cosa non possibile nel caso della composizione statica tramite ereditarietà).
 \end{itemize}
 La maggior parte dei pattern strutturali sono basati sugli oggetti.
 Di seguito andremo ad analizzare i principali pattern strutturali conosciuti.
 
 \subsection{Adapter}
-Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere basato sia su \textit{classi} che su \textit{oggetti}.\\
+Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere usato sia su \textit{classi} che su \textit{oggetti}.\\
 Il suo obiettivo è fornire una soluzione al problema dell'interoperabilità tra interfacce differenti.
 
 L'uso di questo pattern risulta utile quando interfacce di classi differenti devono poter comunicare tra loro, oppure quando si desidera che l'invocazione di un metodo di un oggetto da parte dei client avvenga in maniera "indiretta", ovvero che invece di richiamare il metodo direttamente, si passi attraverso dei metodi "pubblici" che fanno da tramite con l'esterno. Questo permette alla classe di subire modifiche future mantenendo la retrocompatibilità.
@@ -35,13 +45,16 @@ L'uso di questo pattern risulta utile quando interfacce di classi differenti dev
 Adapter può essere basato su classi, utilizzando l'ereditarietà multipla per adattare interfacce diverse con il meccanismo dell'ereditarietà, oppure sulla composizione di oggetti.
 
 \subsection{Bridge$_+$}
-Il Bridge pattern permette di separare l'interfaccia di una classe (che cosa si può fare con la classe) dalla sua implementazione (come lo fa). In tal modo si può usare l'ereditarietà per fare evolvere l'interfaccia o l'implementazione in modo separato.
+Il Bridge pattern permette di separare l'interfaccia di una classe (che cosa si può fare con la classe) dalla sua implementazione (come lo fa). 
+In tal modo si può usare l'ereditarietà per fare evolvere l'interfaccia o l'implementazione in modo separato.
 
 \subsection{Composite$_+$}
-Questo pattern permette di trattare un gruppo di oggetti come se fossero l'istanza di un oggetto singolo. Il design pattern Composite organizza gli oggetti in una struttura ad albero, nella quale i nodi sono delle composite e le foglie sono oggetti semplici.\\
+Questo pattern permette di trattare un gruppo di oggetti come se fossero l'istanza di un oggetto singolo. 
+Il design pattern Composite organizza gli oggetti in una struttura ad albero, nella quale i nodi sono delle composite e le foglie sono oggetti semplici.\\
 
 È utilizzato per dare la possibilità ai client di manipolare oggetti singoli e composizioni in modo uniforme. \\
-Il Composite può essere usato quando i client dovrebbero ignorare la differenza tra oggetti composti e oggetti singoli. Se durante lo sviluppo i programmatori scoprono che stanno usando più oggetti nello stesso modo, e spesso il codice per gestirli è molto simile, il Composite rappresenta una buona scelta di rifattorizzazione: in questa situazione, è meno complesso trattare oggetti primitivi e composti in modo omogeneo.
+Il Composite può essere usato quando i client dovrebbero ignorare la differenza tra oggetti composti e oggetti singoli. 
+Se durante lo sviluppo i programmatori scoprono che stanno usando più oggetti nello stesso modo, e spesso il codice per gestirli è molto simile, il Composite rappresenta una buona scelta di rifattorizzazione: in questa situazione, è meno complesso trattare oggetti primitivi e composti in modo omogeneo.
 
 \subsection{Container$_+$}
 Il Container pattern permette in certi casi una migliore gestione dell'\textit{incapsulamento}. Più che un costrutto, il Container è una buona pratica da seguire per scrivere codice più intelligente e soprattutto sicuro. 
@@ -49,9 +62,12 @@ Il Container pattern permette in certi casi una migliore gestione dell'\textit{i
 Container consiste nel creare una nuova classe nella quale sarà assegnato un oggetto della nostra classe di partenza come campo della classe, e successivamente la nuova classe creata implementerà un metodo nel quale inseriremo i nuovi passi dell'algoritmo, oltre ad una chiamata all'algoritmo di base tramite l'istanza della classe madre.
 
 \subsection{Decorator}
-Il design pattern Decorator consente di aggiungere nuove funzionalità ad oggetti già esistenti. Questo viene realizzato costruendo una nuova classe decoratore che "avvolge" l'oggetto originale. Al costruttore del decoratore si passa come parametro l'oggetto originale. È possibile passarvi un differente decoratore. In questo modo, più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
+Il design pattern Decorator consente di aggiungere nuove funzionalità ad oggetti già esistenti. 
+Questo viene realizzato costruendo una nuova classe decoratore che "avvolge" l'oggetto originale. 
+Al costruttore del decoratore si passa come parametro l'oggetto originale. È possibile passarvi un differente decoratore. In questo modo, più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
 
-Questo pattern si pone come valida alternativa all'uso dell'ereditarietà singola o multipla. Con l'ereditarietà, infatti, l'aggiunta di funzionalità avviene staticamente secondo i legami definiti nella gerarchia di classi e non è possibile ottenere al run-time una combinazione arbitraria delle funzionalità, né la loro aggiunta/rimozione.
+Questo pattern si pone come valida alternativa all'uso dell'ereditarietà singola o multipla. 
+Con l'ereditarietà, infatti, l'aggiunta di funzionalità avviene staticamente secondo i legami definiti nella gerarchia di classi e non è possibile ottenere al run-time una combinazione arbitraria delle funzionalità, né la loro aggiunta/rimozione.
 
 \subsection{Façade}
 Indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi.
@@ -61,7 +77,8 @@ Il vantaggio è ancora più evidente se questo pattern viene utilizzato in una l
 Nelle librerie standard Java (Java 2 Platform, Standard Edition) questo pattern viene spesso usato; si considerino ad esempio tutte le classi disponibili per fare il rendering del testo o delle forme geometriche, un programmatore può ignorare tutte queste classi e utilizzare unicamente le classi façade (Font e Graphics) che offrono un'interfaccia più semplice e omogenea.
 
 \subsection{Proxy}
-Nella sua forma più generale, un proxy è una classe che funziona come interfaccia per qualcos'altro. L'altro potrebbe essere qualunque cosa: una connessione di rete, un grosso oggetto in memoria, un file e altre risorse che sono costose o impossibili da duplicare.
+Nella sua forma più generale, un proxy è una classe che funziona come interfaccia per qualcos'altro. 
+L'altro potrebbe essere qualunque cosa: una connessione di rete, un grosso oggetto in memoria, un file e altre risorse che sono costose o impossibili da duplicare.
 
 Un esempio ben conosciuto di proxy pattern è la tecnica reference counting dei puntatori.
 
@@ -70,7 +87,9 @@ Nelle situazioni in cui molte copie di un oggetto complesso devono esistere, il 
 \subsection{Flyweight$_+$}
 Flyweight è un Design pattern che permette di separare la parte variabile di una classe dalla parte che può essere riutilizzata, in modo tale da condividere quest'ultima fra differenti istanze. L'oggetto Flyweight deve essere un oggetto immutabile, per permettere la condivisione tra diversi client e thread.
 
-Ad esempio: progettando un word processor si potrebbe creare un oggetto per ogni carattere digitato. L'oggetto glifo dovrebbe contenere informazioni come il font, la dimensione e il colore di ogni carattere. Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
+Ad esempio: progettando un word processor si potrebbe creare un oggetto per ogni carattere digitato. 
+L'oggetto glifo dovrebbe contenere informazioni come il font, la dimensione e il colore di ogni carattere. 
+Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
 
 \section{Design Pattern Creazionali}
 I pattern creazionali forniscono un'astrazione del processo di creazione delle istanze delle classi, favorendo l'indipendenza del sistema dalle modalità di creazione e dai tipi concreti effettivamente generati.
