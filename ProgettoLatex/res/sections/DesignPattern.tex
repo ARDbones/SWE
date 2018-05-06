@@ -37,12 +37,28 @@ La maggior parte dei pattern strutturali sono basati sugli oggetti.
 Di seguito andremo ad analizzare i principali pattern strutturali conosciuti.
 
 \subsection{Adapter}
-Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere usato sia su \textit{classi} che su \textit{oggetti}.\\
-Il suo obiettivo è fornire una soluzione al problema dell'interoperabilità tra interfacce differenti.
+Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che può essere usato sia su \textit{classi} che su \textit{oggetti}.
 
-L'uso di questo pattern risulta utile quando interfacce di classi differenti devono poter comunicare tra loro, oppure quando si desidera che l'invocazione di un metodo di un oggetto da parte dei client avvenga in maniera "indiretta", ovvero che invece di richiamare il metodo direttamente, si passi attraverso dei metodi "pubblici" che fanno da tramite con l'esterno. Questo permette alla classe di subire modifiche future mantenendo la retrocompatibilità.
+Il suo obiettivo è convertire l'interfaccia di una classe in un'altra, in modo da rendere possibile l'interoperabilità tra classi aventi interfacce incompatibili.
 
-Adapter può essere basato su classi, utilizzando l'ereditarietà multipla per adattare interfacce diverse con il meccanismo dell'ereditarietà, oppure sulla composizione di oggetti.
+Si utilizza quando si vuole usare una classe esistente senza modificarla: questa è la classe da adattare (adaptee). Ci sono due modi per creare la classe \texttt{adapter}: per ereditarietà o per composizione.
+
+Se si sceglie l'ereditarietà, si utilizza il Class Adapter. Questa variante permette all'\texttt{Adapter} di modificare alcune caratteristiche dell'\texttt{Adaptee}. Tuttavia non funziona se si deve adattare una classe e tutte le sue sottoclassi.
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/classAdapter}
+\caption{Class Adapter}
+\end{figure}
+
+Se si sceglie la composizione, si utilizza l'Object Adapter. Questa variante invece permette di adattare più tipi (classe e sottoclassi), ma non permette di modificare le caratteristiche dell'\texttt{Adaptee}. Inoltre un oggetto \texttt{adapter} non è sottotipo dell'\texttt{adaptee}.
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/objectAdapter}
+\caption{Object Adapter}
+\end{figure}
+
+L'uso di questo pattern risulta utile quando interfacce di classi differenti devono poter comunicare tra loro, oppure quando si desidera che l'invocazione di un metodo di un oggetto da parte dei client avvenga in maniera "indiretta", ovvero che invece di richiamare il metodo direttamente, si passi attraverso dei metodi "pubblici" che fanno da tramite con l'esterno. 
+Questo permette alla classe di subire modifiche future mantenendo la retrocompatibilità.
 
 \subsection{Bridge$_+$}
 Il Bridge pattern permette di separare l'interfaccia di una classe (che cosa si può fare con la classe) dalla sua implementazione (come lo fa). 
@@ -57,39 +73,69 @@ Il Composite può essere usato quando i client dovrebbero ignorare la differenza
 Se durante lo sviluppo i programmatori scoprono che stanno usando più oggetti nello stesso modo, e spesso il codice per gestirli è molto simile, il Composite rappresenta una buona scelta di rifattorizzazione: in questa situazione, è meno complesso trattare oggetti primitivi e composti in modo omogeneo.
 
 \subsection{Container$_+$}
-Il Container pattern permette in certi casi una migliore gestione dell'\textit{incapsulamento}. Più che un costrutto, il Container è una buona pratica da seguire per scrivere codice più intelligente e soprattutto sicuro. 
+Il Container pattern permette in certi casi una migliore gestione dell'\textit{incapsulamento}. 
+Più che un costrutto, il Container è una buona pratica da seguire per scrivere codice più intelligente e soprattutto sicuro. 
 
 Container consiste nel creare una nuova classe nella quale sarà assegnato un oggetto della nostra classe di partenza come campo della classe, e successivamente la nuova classe creata implementerà un metodo nel quale inseriremo i nuovi passi dell'algoritmo, oltre ad una chiamata all'algoritmo di base tramite l'istanza della classe madre.
 
 \subsection{Decorator}
 Il design pattern Decorator consente di aggiungere nuove funzionalità ad oggetti già esistenti. 
 Questo viene realizzato costruendo una nuova classe decoratore che "avvolge" l'oggetto originale. 
-Al costruttore del decoratore si passa come parametro l'oggetto originale. È possibile passarvi un differente decoratore. In questo modo, più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
+Al costruttore del decoratore si passa come parametro l'oggetto originale. 
+È possibile passarvi un differente decoratore; in questo modo più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/decorator}
+\caption{Decorator}
+\end{figure}
 
 Questo pattern si pone come valida alternativa all'uso dell'ereditarietà singola o multipla. 
 Con l'ereditarietà, infatti, l'aggiunta di funzionalità avviene staticamente secondo i legami definiti nella gerarchia di classi e non è possibile ottenere al run-time una combinazione arbitraria delle funzionalità, né la loro aggiunta/rimozione.
 
+Il pattern è ottimo per la sua flessibilità, che permette di aggiungere e rimuovere funzionalità a singoli oggetti a run-time, e per la propensione all'estensibilità del codice, in quanto permette di aggiungere gradualmente le funzionalità senza dover creare classi enormi già in partenza, includendo codice che inizialmente può non essere necessario perché inutilizzato.
+
 \subsection{Façade}
-Indica un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi.
+Il design pattern utilizza un oggetto che permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi.
 
 Il vantaggio è ancora più evidente se questo pattern viene utilizzato in una libreria software, poiché rende indipendente l'implementazione della classe Client dall'implementazione dei vari oggetti Class1, Class2, etc.
+
+\`E un pattern molto utile per la stratificazione di un sistema, se questo utilizza un'architettura a strati.
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/facade}
+\caption{Façade}
+\end{figure}
 
 Nelle librerie standard Java (Java 2 Platform, Standard Edition) questo pattern viene spesso usato; si considerino ad esempio tutte le classi disponibili per fare il rendering del testo o delle forme geometriche, un programmatore può ignorare tutte queste classi e utilizzare unicamente le classi façade (Font e Graphics) che offrono un'interfaccia più semplice e omogenea.
 
 \subsection{Proxy}
-Nella sua forma più generale, un proxy è una classe che funziona come interfaccia per qualcos'altro. 
-L'altro potrebbe essere qualunque cosa: una connessione di rete, un grosso oggetto in memoria, un file e altre risorse che sono costose o impossibili da duplicare.
 
-Un esempio ben conosciuto di proxy pattern è la tecnica reference counting dei puntatori.
+Il pattern Proxy crea un surrogato di un oggetto di cui si vuole controllare l'accesso. Un proxy è applicabile nelle seguenti situazioni:
+\begin{itemize}
+\item Remote proxy: fornisce un rappresentante in locale di un oggetto in un diverso spazio di indirizzamento;
+\item Virtual proxy: crea oggetti complessi e pesanti on-demand;
+\item Protection proxy: controlla l'accesso all'oggetto originale;
+\item Smart reference: rimpiazza il semplice puntatore per svolgere azioni più avanzate, come il reference counting.
+\end{itemize}
 
-Nelle situazioni in cui molte copie di un oggetto complesso devono esistere, il proxy pattern può essere adottato per incorporare il Flyweight pattern per ridurre l'occupazione di memoria dell'oggetto. Tipicamente viene creata un'istanza di oggetto complesso, e molteplici oggetti proxy, ognuno dei quali contiene un riferimento al singolo oggetto complesso. Ogni operazione svolta sui proxy viene trasmessa all'oggetto originale. Una volta che tutte le istanze del proxy sono distrutte, l'oggetto in memoria può essere deallocato.
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/proxy}
+\caption{Proxy}
+\end{figure}
+
+Tipicamente viene creata un'istanza di oggetto complesso, e molteplici oggetti proxy, ognuno dei quali contiene un riferimento al singolo oggetto complesso. 
+Ogni operazione svolta sui proxy viene trasmessa all'oggetto originale. 
+
+Una volta che tutte le istanze del proxy sono distrutte, l'oggetto in memoria può essere deallocato.
 
 \subsection{Flyweight$_+$}
-Flyweight è un Design pattern che permette di separare la parte variabile di una classe dalla parte che può essere riutilizzata, in modo tale da condividere quest'ultima fra differenti istanze. L'oggetto Flyweight deve essere un oggetto immutabile, per permettere la condivisione tra diversi client e thread.
+Flyweight è un Design pattern che permette di separare la parte variabile di una classe dalla parte che può essere riutilizzata, in modo tale da condividere quest'ultima fra differenti istanze. 
+L'oggetto Flyweight deve essere un oggetto immutabile, per permettere la condivisione tra diversi client e thread.
 
 Ad esempio: progettando un word processor si potrebbe creare un oggetto per ogni carattere digitato. 
 L'oggetto glifo dovrebbe contenere informazioni come il font, la dimensione e il colore di ogni carattere. 
-Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
+Il problema è che un testo lungo potrebbe contenere migliaia di caratteri, e oggetti. Il pattern Flyweight risolve il problema creando un nuovo oggetto per memorizzare quelle informazioni che sono condivise da tutti i caratteri con la stessa formattazione. 
+Memorizzando le informazioni una volta sola si ha un grosso risparmio di memoria.
 
 \section{Design Pattern Creazionali}
 I pattern creazionali forniscono un'astrazione del processo di creazione delle istanze delle classi, favorendo l'indipendenza del sistema dalle modalità di creazione e dai tipi concreti effettivamente generati.
@@ -99,7 +145,8 @@ Ci sono due aspetti che caratterizzano i pattern appartenenti a questa categoria
 	\item la capacità di mascherare al client la conoscenza degli oggetti concreti creati, sfruttando tipi astratti per definire le interfacce di riferimento;
 	\item la capacità di nascondere le modalità di creazione all'utilizzatore dell'istanza.
 \end{itemize}
-Queste due caratteristiche conferiscono una notevole flessibilità al processo di creazione, dal momento che ciò che viene creato in generale risulta essere disaccoppiato dal contesto di utilizzo. Infatti solo l'oggetto creatore conosce il tipo effettivo dell'istanza e ciò che viene esternamente reso pubblico è unicamente l'interfaccia di riferimento.
+Queste due caratteristiche conferiscono una notevole flessibilità al processo di creazione, dal momento che ciò che viene creato in generale risulta essere disaccoppiato dal contesto di utilizzo. 
+Infatti solo l'oggetto creatore conosce il tipo effettivo dell'istanza e ciò che viene esternamente reso pubblico è unicamente l'interfaccia di riferimento.
 Tra i principali pattern creazionali troviamo:
 
 \subsection{Abstract factory}
@@ -119,12 +166,15 @@ l design pattern Builder, separa la costruzione di un oggetto complesso dalla su
 
 L'algoritmo per la creazione di un oggetto complesso è indipendente dalle varie parti che costituiscono l'oggetto e da come vengono assemblate.
 
-Ciò ha l'effetto immediato di rendere più semplice la classe, permettendo a una classe builder separata di focalizzarsi sulla corretta costruzione di un'istanza e lasciando che la classe originale si concentri sul funzionamento degli oggetti. Questo è particolarmente utile quando volete assicurarvi che un oggetto sia valido prima di istanziarlo, e non volete che la logica di controllo appaia nei costruttori degli oggetti. Un builder permette anche di costruire un oggetto passo-passo, cosa che si può verificare quando si fa il parsing di un testo o si ottengono i parametri da un'interfaccia interattiva.
+Ciò ha l'effetto immediato di rendere più semplice la classe, permettendo a una classe builder separata di focalizzarsi sulla corretta costruzione di un'istanza e lasciando che la classe originale si concentri sul funzionamento degli oggetti. 
+Questo è particolarmente utile quando volete assicurarvi che un oggetto sia valido prima di istanziarlo, e non volete che la logica di controllo appaia nei costruttori degli oggetti. 
+Un builder permette anche di costruire un oggetto passo-passo, cosa che si può verificare quando si fa il parsing di un testo o si ottengono i parametri da un'interfaccia interattiva.
 
 \subsection{Factory method$_+$}
 il Factory Method indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.
 
-La creazione di un oggetto può, spesso, richiedere processi complessi la cui collocazione all'interno della classe di composizione potrebbe non essere appropriata. Esso può, inoltre, comportare la duplicazione di codice, richiedere informazioni non accessibili alla classe di composizione, o non provvedere un sufficiente livello di astrazione. Il factory method indirizza questi problemi definendo un metodo separato per la creazione degli oggetti; tale metodo può essere ridefinito dalle sottoclassi per definire il tipo derivato di prodotto che verrà effettivamente creato.
+La creazione di un oggetto può, spesso, richiedere processi complessi la cui collocazione all'interno della classe di composizione potrebbe non essere appropriata. Esso può, inoltre, comportare la duplicazione di codice, richiedere informazioni non accessibili alla classe di composizione, o non provvedere un sufficiente livello di astrazione.
+ Il factory method indirizza questi problemi definendo un metodo separato per la creazione degli oggetti; tale metodo può essere ridefinito dalle sottoclassi per definire il tipo derivato di prodotto che verrà effettivamente creato.
 
 Il pattern factory può essere utilizzato quando:
 \begin{itemize}
@@ -158,10 +208,12 @@ Può rivelarsi utile quando:
 \subsection{Singleton}
 Singleton ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
 
-L'implementazione più semplice di questo pattern prevede che la classe singleton abbia un unico costruttore privato, in modo da impedire l'istanziazione diretta della classe. La classe fornisce inoltre un metodo "getter" statico che restituisce l'istanza della classe (sempre la stessa), creandola preventivamente o alla prima chiamata del metodo, e memorizzandone il riferimento in un attributo privato anch'esso statico. Il secondo approccio si può classificare come basato sul principio della lazy initialization (letteralmente "inizializzazione pigra") in quanto la creazione dell'istanza della classe viene rimandata nel tempo e messa in atto solo quando ciò diventa strettamente necessario (al primo tentativo di uso).
+L'implementazione più semplice di questo pattern prevede che la classe singleton abbia un unico costruttore privato, in modo da impedire l'istanziazione diretta della classe. La classe fornisce inoltre un metodo "getter" statico che restituisce l'istanza della classe (sempre la stessa), creandola preventivamente o alla prima chiamata del metodo, e memorizzandone il riferimento in un attributo privato anch'esso statico. 
+Il secondo approccio si può classificare come basato sul principio della lazy initialization (letteralmente "inizializzazione pigra") in quanto la creazione dell'istanza della classe viene rimandata nel tempo e messa in atto solo quando ciò diventa strettamente necessario (al primo tentativo di uso).
 
 \section{Design Pattern Comportamentali}
-I design pattern comportamentali si riferiscono alla distribuzione delle responsabilità tra oggetti tra loro correlati. Essi non affrontano unicamente gli aspetti relativi alla struttura degli oggetti e delle classi interagenti, ma si focalizzano soprattutto sulle modalità di comunicazione e collaborazione.
+I design pattern comportamentali si riferiscono alla distribuzione delle responsabilità tra oggetti tra loro correlati. 
+Essi non affrontano unicamente gli aspetti relativi alla struttura degli oggetti e delle classi interagenti, ma si focalizzano soprattutto sulle modalità di comunicazione e collaborazione.
 
 La maggior parte di questi pattern fornisce soluzioni per incapsulare le diverse funzionalità in un oggetto specifico con l'intento di delegare ad esso l'esecuzione del codice vero e proprio. Questo approccio permette in generale di eliminare le dipendenze dirette tra i vari oggetti coinvolti, limitando l'accoppiamento e facilitando la possibilità di estendere e modificare il codice senza grossi sforzi.
 Alcuni esempi:
@@ -174,20 +226,27 @@ Il pattern è comodo quando non conosciamo a priori quale oggetto è in grado di
 \subsection{Command}
 Il Command pattern è uno dei design pattern che permette di isolare la porzione di codice che effettua un'azione (eventualmente molto complessa) dal codice che ne richiede l'esecuzione; l'azione è incapsulata nell'oggetto Command.
 
-L'obiettivo è rendere variabile l'azione del client senza però conoscere i dettagli dell'operazione stessa. Altro aspetto importante è che il destinatario della richiesta può non essere deciso staticamente all'atto dell'istanziazione del command ma ricavato a tempo di esecuzione.
+L'obiettivo è rendere variabile l'azione del client senza però conoscere i dettagli dell'operazione stessa. 
+Altro aspetto importante è che il destinatario della richiesta può non essere deciso staticamente all'atto dell'istanziazione del command ma ricavato a tempo di esecuzione.
 
 \subsection{Interpreter$_+$}
-Nella programmazione, l'interpreter viene considerato come un particolare modello di progettazione. L'interpreter pattern difatti precisa come valutare le frasi in una determinata lingua o linguaggio. L'idea di base è quella di avere una classe per ciascun simbolo (terminale o non terminale) in un linguaggio di programmazione specifico. L'albero sintattico di una frase nella lingua è quindi un esempio del modello sintattico composito e viene usato per valutare (interpretare) la frase.
+Nella programmazione, l'interpreter viene considerato come un particolare modello di progettazione. 
+L'interpreter pattern difatti precisa come valutare le frasi in una determinata lingua o linguaggio. 
+L'idea di base è quella di avere una classe per ciascun simbolo (terminale o non terminale) in un linguaggio di programmazione specifico.
+L'albero sintattico di una frase nella lingua è quindi un esempio del modello sintattico composito e viene usato per valutare (interpretare) la frase.
 
 \subsection{Iterator}
-L'Iterator risolve diversi problemi connessi all'accesso e alla navigazione attraverso gli elementi, in particolare, di una struttura dati contenitrice, senza esporre i dettagli dell'implementazione e della struttura interna del contenitore. L'oggetto principale su cui si basa questo design pattern è l'iteratore.
+L'Iterator risolve diversi problemi connessi all'accesso e alla navigazione attraverso gli elementi, in particolare, di una struttura dati contenitrice, senza esporre i dettagli dell'implementazione e della struttura interna del contenitore. 
+L'oggetto principale su cui si basa questo design pattern è l'iteratore.
 
 L'idea chiave del pattern Iterator consiste nel trasferire la responsabilità dell'accesso e della navigazione attraverso gli elementi a una classe separata dal contenitore: l'iteratore.
 
-La classe iteratore consente di visitare ad uno ad uno l'insieme degli elementi di un contenitore come se fossero ordinati in una sequenza finita. A questo scopo, un oggetto iteratore deve tenere traccia dell'ultimo elemento visitato e deve essere in grado di calcolare qual è l'elemento successivo nella sequenza di attraversamento.
+La classe iteratore consente di visitare ad uno ad uno l'insieme degli elementi di un contenitore come se fossero ordinati in una sequenza finita. 
+A questo scopo, un oggetto iteratore deve tenere traccia dell'ultimo elemento visitato e deve essere in grado di calcolare qual è l'elemento successivo nella sequenza di attraversamento.
 
 \subsection{Mediator$_+$}
-Mediator opera nel contesto delle interazioni tra oggetti, e ha l'intento di disaccoppiare entità del sistema che devono comunicare fra loro. Il pattern infatti fa in modo che queste entità non si referenzino reciprocamente, agendo da "mediatore" fra le parti.
+Mediator opera nel contesto delle interazioni tra oggetti, e ha l'intento di disaccoppiare entità del sistema che devono comunicare fra loro. 
+Il pattern infatti fa in modo che queste entità non si referenzino reciprocamente, agendo da "mediatore" fra le parti.
 
 Il beneficio principale è il permettere di modificare agilmente le politiche di interazione, poiché le entità coinvolte devono fare riferimento al loro interno solamente al mediatore.
 
@@ -216,7 +275,9 @@ Tra le conseguenze:
 \end{itemize}
 
 \subsection{Strategy}
-L'obiettivo di questa architettura è isolare un algoritmo all'interno di un oggetto, in maniera tale da risultare utile in quelle situazioni dove sia necessario modificare dinamicamente gli algoritmi utilizzati da un'applicazione. Si pensi ad esempio alle possibili visite in una struttura ad albero (visita anticipata, simmetrica, posticipata); mediante il pattern strategy è possibile selezionare a tempo di esecuzione una tra le visite ed eseguirla sull'albero per ottenere il risultato voluto. Anche il design pattern Iterator si basa su questo concetto di isolamento.
+L'obiettivo di questa architettura è isolare un algoritmo all'interno di un oggetto, in maniera tale da risultare utile in quelle situazioni dove sia necessario modificare dinamicamente gli algoritmi utilizzati da un'applicazione. 
+Si pensi ad esempio alle possibili visite in una struttura ad albero (visita anticipata, simmetrica, posticipata); mediante il pattern strategy è possibile selezionare a tempo di esecuzione una tra le visite ed eseguirla sull'albero per ottenere il risultato voluto.
+Anche il design pattern Iterator si basa su questo concetto di isolamento.
 
 Questo pattern prevede che gli algoritmi siano intercambiabili tra loro, in base ad una specificata condizione, in modalità trasparente al client che ne fa uso. In altre parole, data una famiglia di algoritmi che implementa una certa funzionalità, come può essere ad esempio un algoritmo di visita oppure di ordinamento, essi dovranno esportare sempre la medesima interfaccia, così il client dell'algoritmo non dovrà fare nessuna assunzione su quale sia la strategia istanziata in un particolare istante.
 
@@ -241,7 +302,8 @@ Visitor è utile quando:
 \end{itemize}
 
 \section{Design Pattern Architetturali}
-I pattern architetturali operano ad un livello diverso (e più ampio) rispetto ai design pattern. Descrivono lo schema organizzativo della struttura che caratterizza un sistema software. In genere questi pattern individuano le parti del sistema a cui sono associate responsabilità omogenee e le relazioni che esistono tra i diversi sottosistemi.
+I pattern architetturali operano ad un livello diverso (e più ampio) rispetto ai design pattern. Descrivono lo schema organizzativo della struttura che caratterizza un sistema software.
+In genere questi pattern individuano le parti del sistema a cui sono associate responsabilità omogenee e le relazioni che esistono tra i diversi sottosistemi.
 Alcuni esempi di questi pattern sono:
 
 \subsection{Client-server$_+$}
@@ -254,7 +316,8 @@ Le reti locali aziendali (LAN), la rete Internet, i sistemi informatici e i sist
 \subsection{Model-View-Controller MVC}
 è un pattern architetturale molto diffuso nello sviluppo di sistemi software, in grado di separare la logica di presentazione dei dati dalla logica di business.
 
-Il componente centrale del MVC, il modello, cattura il comportamento dell'applicazione in termini di dominio del problema, indipendentemente dall'interfaccia utente. Il modello gestisce direttamente i dati, la logica e le regole dell'applicazione. Una vista può essere una qualsiasi rappresentazione in output di informazioni, come un grafico o un diagramma. Sono possibili viste multiple delle stesse informazioni, come ad esempio un grafico a barre per la gestione e la vista tabellare per l'amministrazione. La terza parte, il controller, accetta l'input e lo converte in comandi per il modello e/o la vista.
+Il componente centrale del MVC, il modello, cattura il comportamento dell'applicazione in termini di dominio del problema, indipendentemente dall'interfaccia utente. Il modello gestisce direttamente i dati, la logica e le regole dell'applicazione.
+Una vista può essere una qualsiasi rappresentazione in output di informazioni, come un grafico o un diagramma. Sono possibili viste multiple delle stesse informazioni, come ad esempio un grafico a barre per la gestione e la vista tabellare per l'amministrazione. La terza parte, il controller, accetta l'input e lo converte in comandi per il modello e/o la vista.
 
 l pattern è basato sulla separazione dei compiti fra i componenti software che interpretano tre ruoli principali:
 \begin{itemize}
@@ -264,7 +327,8 @@ l pattern è basato sulla separazione dei compiti fra i componenti software che 
 \end{itemize}
 Questo schema, fra l'altro, implica anche la tradizionale separazione fra la logica applicativa (in questo contesto spesso chiamata "logica di business"), a carico del controller e del model, e l'interfaccia utente a carico del view.
 
-I dettagli delle interazioni fra questi tre oggetti software dipendono molto dalle tecnologie usate (linguaggio di programmazione, eventuali librerie, middleware e via dicendo) e dal tipo di applicazione (per esempio se si tratta di un'applicazione web, o di un'applicazione desktop). Quasi sempre la relazione fra view e model è descrivibile anche come istanza del pattern Observer. A volte, quando è necessario cambiare il comportamento standard dell'applicazione a seconda delle circostanze, il controller implementa anche il pattern Strategy.
+I dettagli delle interazioni fra questi tre oggetti software dipendono molto dalle tecnologie usate (linguaggio di programmazione, eventuali librerie, middleware e via dicendo) e dal tipo di applicazione (per esempio se si tratta di un'applicazione web, o di un'applicazione desktop). 
+Quasi sempre la relazione fra view e model è descrivibile anche come istanza del pattern Observer. A volte, quando è necessario cambiare il comportamento standard dell'applicazione a seconda delle circostanze, il controller implementa anche il pattern Strategy.
 
 \subsection{Model-View-Presenter MVP}
 ...
@@ -289,7 +353,10 @@ Il fulcro del funzionamento di questo pattern è la creazione di un componente, 
 \subsection{Dependency Injection}
 Dependency injection è un design pattern il cui scopo è quello di semplificare lo sviluppo e migliorare la testabilità di software di grandi dimensioni.
 
-Per utilizzare tale design pattern è sufficiente dichiarare le dipendenze che un componente necessita (dette anche interface contracts). Quando il componente verrà istanziato, un iniettore si prenderà carico di risolvere le dipendenze (attuando dunque l'inversione del controllo). Se è la prima volta che si tenta di risolvere una dipendenza l'injector istanzierà il componente dipendente, lo salverà in un contenitore di istanze e lo ritornerà. Se non è la prima volta, allora ritornerà la copia salvata nel contenitore. Una volta risolte tutte le dipendenze, il controllo può tornare al componente applicativo.
+Per utilizzare tale design pattern è sufficiente dichiarare le dipendenze che un componente necessita (dette anche interface contracts).
+Quando il componente verrà istanziato, un iniettore si prenderà carico di risolvere le dipendenze (attuando dunque l'inversione del controllo).
+Se è la prima volta che si tenta di risolvere una dipendenza l'injector istanzierà il componente dipendente, lo salverà in un contenitore di istanze e lo ritornerà. Se non è la prima volta, allora ritornerà la copia salvata nel contenitore.
+Una volta risolte tutte le dipendenze, il controllo può tornare al componente applicativo.
 
 Il pattern Dependency Injection coinvolge almeno tre elementi:
 \begin{itemize}
