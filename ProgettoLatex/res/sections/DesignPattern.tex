@@ -41,19 +41,19 @@ Adapter, chiamato anche \textit{wrapper}, è un design pattern strutturale che p
 
 Il suo obiettivo è convertire l'interfaccia di una classe in un'altra, in modo da rendere possibile l'interoperabilità tra classi aventi interfacce incompatibili.
 
-Si utilizza quando si vuole usare una classe esistente senza modificarla: questa è la classe da adattare (adaptee). Ci sono due modi per creare la classe \texttt{adapter}: per ereditarietà o per composizione.
+Si utilizza quando si vuole usare una classe esistente senza modificarla: questa è la classe da adattare (adaptee). Ci sono due modi per creare la classe \texttt{Adapter}: per ereditarietà o per composizione.
 
 Se si sceglie l'ereditarietà, si utilizza il Class Adapter. Questa variante permette all'\texttt{Adapter} di modificare alcune caratteristiche dell'\texttt{Adaptee}. Tuttavia non funziona se si deve adattare una classe e tutte le sue sottoclassi.
 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{res/img/DP/classAdapter}
+\includegraphics[width=0.8\textwidth]{res/img/DP/classAdapter}
 \caption{Class Adapter}
 \end{figure}
 
 Se si sceglie la composizione, si utilizza l'Object Adapter. Questa variante invece permette di adattare più tipi (classe e sottoclassi), ma non permette di modificare le caratteristiche dell'\texttt{Adaptee}. Inoltre un oggetto \texttt{adapter} non è sottotipo dell'\texttt{adaptee}.
 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{res/img/DP/objectAdapter}
+\includegraphics[width=0.8\textwidth]{res/img/DP/objectAdapter}
 \caption{Object Adapter}
 \end{figure}
 
@@ -85,7 +85,7 @@ Al costruttore del decoratore si passa come parametro l'oggetto originale.
 È possibile passarvi un differente decoratore; in questo modo più decoratori possono essere concatenati l'uno all'altro, aggiungendo così in modo incrementale funzionalità alla classe concreta (che è rappresentata dall'ultimo anello della catena).
 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{res/img/DP/decorator}
+\includegraphics[width=0.8\textwidth]{res/img/DP/decorator}
 \caption{Decorator}
 \end{figure}
 
@@ -102,7 +102,7 @@ Il vantaggio è ancora più evidente se questo pattern viene utilizzato in una l
 \`E un pattern molto utile per la stratificazione di un sistema, se questo utilizza un'architettura a strati.
 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{res/img/DP/facade}
+\includegraphics[width=0.8\textwidth]{res/img/DP/facade}
 \caption{Façade}
 \end{figure}
 
@@ -119,7 +119,7 @@ Il pattern Proxy crea un surrogato di un oggetto di cui si vuole controllare l'a
 \end{itemize}
 
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{res/img/DP/proxy}
+\includegraphics[width=0.8\textwidth]{res/img/DP/proxy}
 \caption{Proxy}
 \end{figure}
 
@@ -147,10 +147,15 @@ Ci sono due aspetti che caratterizzano i pattern appartenenti a questa categoria
 \end{itemize}
 Queste due caratteristiche conferiscono una notevole flessibilità al processo di creazione, dal momento che ciò che viene creato in generale risulta essere disaccoppiato dal contesto di utilizzo. 
 Infatti solo l'oggetto creatore conosce il tipo effettivo dell'istanza e ciò che viene esternamente reso pubblico è unicamente l'interfaccia di riferimento.
-Tra i principali pattern creazionali troviamo:
 
 \subsection{Abstract factory}
+
 L'Abstract Factory fornisce un'interfaccia per creare famiglie di oggetti connessi o dipendenti tra loro, in modo che non ci sia necessità da parte dei client di specificare i nomi delle classi concrete all'interno del proprio codice.
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/abstractFactory}
+\caption{Abstract factory}
+\end{figure}
 
 In questo modo si permette che un sistema sia indipendente dall'implementazione degli oggetti concreti e che il client, attraverso l'interfaccia, utilizzi diverse famiglie di prodotti.
 
@@ -162,13 +167,22 @@ Questo pattern è utile quando:
 	\item si vuole fornire una libreria di classi mostrando solo le interfacce e nascondendo le implementazioni.
 \end{itemize}
 \subsection{Builder}
-l design pattern Builder, separa la costruzione di un oggetto complesso dalla sua rappresentazione cosicché il processo di costruzione stesso possa creare diverse rappresentazioni.
+
+Il design pattern Builder, separa la costruzione di un oggetto complesso dalla sua rappresentazione cosicché il processo di costruzione stesso possa creare diverse rappresentazioni.
+
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/builder}
+\caption{Builder}
+\end{figure}
 
 L'algoritmo per la creazione di un oggetto complesso è indipendente dalle varie parti che costituiscono l'oggetto e da come vengono assemblate.
 
-Ciò ha l'effetto immediato di rendere più semplice la classe, permettendo a una classe builder separata di focalizzarsi sulla corretta costruzione di un'istanza e lasciando che la classe originale si concentri sul funzionamento degli oggetti. 
+Ciò ha l'effetto immediato di rendere più semplice la classe, permettendo a una classe \texttt{Builder} separata di focalizzarsi sulla corretta costruzione di un'istanza e lasciando che la classe originale si concentri sul funzionamento degli oggetti. 
 Questo è particolarmente utile quando volete assicurarvi che un oggetto sia valido prima di istanziarlo, e non volete che la logica di controllo appaia nei costruttori degli oggetti. 
+
 Un builder permette anche di costruire un oggetto passo-passo, cosa che si può verificare quando si fa il parsing di un testo o si ottengono i parametri da un'interfaccia interattiva.
+
+Spesso il Builder viene utilizzato per la costruzione di un'interfaccia grafica.
 
 \subsection{Factory method$_+$}
 il Factory Method indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.
@@ -206,9 +220,17 @@ Può rivelarsi utile quando:
 \item quando le istanze di una classe possono avere soltanto un limitato numero di stati, per cui può essere più conveniente clonare al bisogno il prototipo corrispondente piuttosto che creare l'oggetto e configurarlo ogni volta.
 \end{itemize}
 \subsection{Singleton}
+
 Singleton ha lo scopo di garantire che di una determinata classe venga creata una e una sola istanza, e di fornire un punto di accesso globale a tale istanza.
 
-L'implementazione più semplice di questo pattern prevede che la classe singleton abbia un unico costruttore privato, in modo da impedire l'istanziazione diretta della classe. La classe fornisce inoltre un metodo "getter" statico che restituisce l'istanza della classe (sempre la stessa), creandola preventivamente o alla prima chiamata del metodo, e memorizzandone il riferimento in un attributo privato anch'esso statico. 
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{res/img/DP/singleton}
+\caption{Singleton}
+\end{figure}
+
+L'implementazione più semplice di questo pattern prevede che la classe singleton abbia un unico costruttore privato, in modo da impedire l'istanziazione diretta della classe. 
+La classe fornisce inoltre un metodo "getter" statico che restituisce l'istanza della classe (sempre la stessa), creandola preventivamente o alla prima chiamata del metodo, e memorizzandone il riferimento in un attributo privato anch'esso statico. 
+
 Il secondo approccio si può classificare come basato sul principio della lazy initialization (letteralmente "inizializzazione pigra") in quanto la creazione dell'istanza della classe viene rimandata nel tempo e messa in atto solo quando ciò diventa strettamente necessario (al primo tentativo di uso).
 
 \section{Design Pattern Comportamentali}
