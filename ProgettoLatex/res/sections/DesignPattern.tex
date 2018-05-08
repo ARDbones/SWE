@@ -377,8 +377,7 @@ Questo schema, fra l'altro, implica anche la tradizionale separazione fra la log
 I dettagli delle interazioni fra questi tre oggetti software dipendono molto dalle tecnologie usate (linguaggio di programmazione, eventuali librerie, middleware e via dicendo) e dal tipo di applicazione (per esempio se si tratta di un'applicazione web, o di un'applicazione desktop). 
 Quasi sempre la relazione fra view e model è descrivibile anche come istanza del pattern Observer. A volte, quando è necessario cambiare il comportamento standard dell'applicazione a seconda delle circostanze, il controller implementa anche il pattern Strategy.
 
-\subsection{Model-View-Presenter MVP}
-...
+%\subsection{Model-View-Presenter MVP}
 
 \subsection{Model-View-ViewModel}
 MVVM è un pattern architetturale e consiste nella separazione degli aspetti della nostra applicazione in tre componenti:
@@ -402,7 +401,8 @@ Dependency injection è un design pattern il cui scopo è quello di semplificare
 
 Per utilizzare tale design pattern è sufficiente dichiarare le dipendenze che un componente necessita (dette anche interface contracts).
 Quando il componente verrà istanziato, un iniettore si prenderà carico di risolvere le dipendenze (attuando dunque l'inversione del controllo).
-Se è la prima volta che si tenta di risolvere una dipendenza l'injector istanzierà il componente dipendente, lo salverà in un contenitore di istanze e lo ritornerà. Se non è la prima volta, allora ritornerà la copia salvata nel contenitore.
+Se è la prima volta che si tenta di risolvere una dipendenza l'injector istanzierà il componente dipendente, lo salverà in un contenitore di istanze e lo ritornerà.
+Se non è la prima volta, allora ritornerà la copia salvata nel contenitore.
 Una volta risolte tutte le dipendenze, il controllo può tornare al componente applicativo.
 
 Il pattern Dependency Injection coinvolge almeno tre elementi:
