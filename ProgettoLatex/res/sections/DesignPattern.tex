@@ -78,7 +78,7 @@ Più che un costrutto, il Container è una buona pratica da seguire per scrivere
 
 Container consiste nel creare una nuova classe nella quale sarà assegnato un oggetto della nostra classe di partenza come campo della classe, e successivamente la nuova classe creata implementerà un metodo nel quale inseriremo i nuovi passi dell'algoritmo, oltre ad una chiamata all'algoritmo di base tramite l'istanza della classe madre.
 
-\subsection{Decorator}
+\subsection{Decorator}\label{decorator}
 Il design pattern Decorator consente di aggiungere nuove funzionalità ad oggetti già esistenti. 
 Questo viene realizzato costruendo una nuova classe decoratore che "avvolge" l'oggetto originale. 
 Al costruttore del decoratore si passa come parametro l'oggetto originale. 
@@ -108,7 +108,7 @@ Il vantaggio è ancora più evidente se questo pattern viene utilizzato in una l
 
 Nelle librerie standard Java (Java 2 Platform, Standard Edition) questo pattern viene spesso usato; si considerino ad esempio tutte le classi disponibili per fare il rendering del testo o delle forme geometriche, un programmatore può ignorare tutte queste classi e utilizzare unicamente le classi façade (Font e Graphics) che offrono un'interfaccia più semplice e omogenea.
 
-\subsection{Proxy}
+\subsection{Proxy}\label{proxy}
 
 Il pattern Proxy crea un surrogato di un oggetto di cui si vuole controllare l'accesso. Un proxy è applicabile nelle seguenti situazioni:
 \begin{itemize}
@@ -148,7 +148,7 @@ Ci sono due aspetti che caratterizzano i pattern appartenenti a questa categoria
 Queste due caratteristiche conferiscono una notevole flessibilità al processo di creazione, dal momento che ciò che viene creato in generale risulta essere disaccoppiato dal contesto di utilizzo. 
 Infatti solo l'oggetto creatore conosce il tipo effettivo dell'istanza e ciò che viene esternamente reso pubblico è unicamente l'interfaccia di riferimento.
 
-\subsection{Abstract factory}
+\subsection{Abstract factory}\label{absFactory}
 
 L'Abstract Factory fornisce un'interfaccia per creare famiglie di oggetti connessi o dipendenti tra loro, in modo che non ci sia necessità da parte dei client di specificare i nomi delle classi concrete all'interno del proprio codice.
 

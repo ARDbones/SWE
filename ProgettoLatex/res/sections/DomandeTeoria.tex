@@ -1,0 +1,343 @@
+\chapter{Domande appelli passati}
+
+Questo capitolo raccoglie alcune domande teoriche poste negli appelli scritti degli anni passati.
+Le domande sono raccolte per argomenti.
+
+\section{Vario}
+
+Fornire una definizione di progetto, definendo anche ogni termine tecnico utilizzato nella definizione.\\
+
+Fornire una definizione dei concetti di "milestone" e "baseline", indicando come ciascuno di essi sia da utilizzare all'interno delle attività di progetto.\\
+
+Definizione di efficacia ed efficienza e esempi di come concorrono alla formazione delle strategie di organizzazione e governo di progetto.\\
+
+Durante lo svolgimento del progetto didattico avete sovente confuso la nozione di "fase" di progetto con quella di "attività" di progetto (o, meglio ancora, di processo software, inteso come aggregato di attività coordinate e coese).
+Provate qui a descrivere compiutamente ciascuna delle due nozioni così da evidenziare le differenze e le relazioni tra esse.\\
+
+Elencare quali "attività di progetto" software ritenete siano utilmente automatizzabili, in tutto e in parte, provando anche a rapportare i vantaggi che ne deriverebbero con i costi che l'ottenimento di tale automazione potrebbe comportare.\\
+
+
+Definizione di processo, attività e fase.
+Fissando l'attenzione sulla definizione di processo associata allo standard ISO/IEC 12207, indicare quali processi sia possibile e opportuno istanziare su una attività di tagli analoga al progetto didattico, e con quale istanziazione concreta (cioè verso quale insieme di attività, obiettivi, e flussi di dipendenza).\\
+
+Fissando l'attenzione sulla definizione di "processo" associata allo standard ISO/IEC 12207, indicare come (secondo quali regole), quando (in quali fasi di progetto) e perché (attraverso quali attività) la vostra esperienza di progetto didattico ha visto attuato tale concetto. 
+Una azienda informatica asserisce di applicare ai suoi processi produttivi lo standard "ISO/IEC 12207". Si tratta di una affermazione corretta? Spiegare brevemente la risposta.\\
+
+Tre tipi di processi:
+\begin{itemize}
+\item I processi Primari sono il fulcro dello sviluppo del prodotto e si servono dei processi di Supporto ed Organizzativi;
+\item I processi di Supporto invece sono ausiliari agli altri processi per il corretto sviluppo del progetto;
+\item I processi Organizzativi stanno al di sotto di tutto, e provvedono alla corretta gestione dello sviluppo.
+\end{itemize}
+
+\section{Sviluppo iterativo e incrementale}
+
+\subsection*{Domande}
+Spiegare concisamente (dunque a livello di sostanza) la differenza tra il modello di sviluppo "iterativo" e quello "incrementale". 
+Alla luce dell'esperienza acquisita nel progetto didattico, indicare – spiegando a posteriori – quale dei due sarebbe stato più adatto al caso.\\
+
+Sviluppo incrementale: descrivere le caratteristiche salienti e discutere le principali difficoltà che si possono riscontrare aderendo ad esso.\\ 
+
+Spiegare concisamente la differenza tra il modello di sviluppo “iterativo” e quello “incrementale”, fornendo sufficienti elementi per comprendere sia l'uno che l'altro.
+Nella spiegazione, descrivere anche le condizioni al contorno che rendano preferibile l'uno o l'altro. \\
+
+Spiegare concisamente la differenza tra il modello di sviluppo iterativo e quello incrementale.
+Facendo poi riferimento alla natura del progetto didattico, per vincoli e obiettivi, indicare a quale di tali due modelli l'esperienza reale (vissuta o ipotizzata) corrisponda più da vicino, spiegando perché se ciò sia da considerare positivo. 
+
+\subsection*{Risposta/appunti}
+Il modello di sviluppo iterativo consiste nel ritornare più volte indietro, ritornando al periodo di analisi e pianificazione
+più volte durante il ciclo del software. La peculiarità di questo modello sta nel fatto che ad un cambio di requisiti
+importante potrei trovarmi a buttare via del lavoro già fatto in precedenza e che non rispecchia più i nuovi requisiti.
+L'avanzamento con questo modello è più lento, genero dei prototipi che sono di due tipi:
+Interni, ovvero servono al team per approcciarsi al problema e trovare una soluzione (di solito genera solo costi).
+Esterni, ovvero sono prototipi che sottopongo al cliente che può accettare o meno mettendo in discussione quanto
+pianificato e facendo tornare indietro.
+Il modello incrementale che ho utlizzato durante il progetto didattico invece si prefigge l'obiettivo di portare un
+avanzamento continuo il progetto senza mai tornare indietro.
+Si basa sul fatto che aggiungo qualcosa di volta in volta ad una baseline stabile rafforzando l'idea che la baseline sia
+solida.Si verifica un effetto a gradino nel quale non retrocedo più ovvero una volta incrementato so che sono avanzato e
+che la baseline è buona.
+Rispetto al progetto didattico, posso affermare che sicuramente il modello incrementare era quello che più si presto al
+rispetto dei vincoli e obiettivi del capitolato, in quanto sono state fissate delle milestone e delle baseline che
+imponevano un persorso di avanzamento con date progressive. Inoltre per il committente era importante avere un
+prodotto che potesse essere fruibile nelle versioni base e da li si potesse avanza e l'idea di tornare indietro
+pericolosamente poteva compromettere la riusciata dal progetto nei tempi fissati.
+Personalmente ho trovato molto buono il modello incrementale e ci ha permesso di rispettare tutte le consegna e di non
+saltare nessuna revisione, dunque credo che la scelta di questo modello sia stata azzeccata.
+
+\section{Metriche}
+
+\subsection*{Domande}
+Presentare concisamente almeno due "metriche" utilizzabile per la misurazione di qualità della progettazione software e del codice.
+Specificare quale tra esse sia stata utilizzata nel proprio progetto didattico e con quale esito. \\
+
+Presentare due "metriche" significative per la misurazione di qualità della progettazione software e del codice (quindi almeno una metrica per ciascun oggetto). 
+Giustificare la scelta in base all'esperienza maturata nell'ambito del proprio progetto didattico.
+Discutere brevemente l'esito osservato dell'eventuale uso pratico di tali metriche.\\
+
+Presentare, per obiettivi, punti di valorizzazione, possibilità di automazione, due metriche significative per la misurazione della qualità della progettazione software e del codice (quindi almeno una metrica per ciascun ambito).
+Ove possibile, fare riferimento a esperienze specifiche e personali per valutare l'esito osservato dall'eventuale uso pratico delle metriche discusse. 
+
+\subsection*{Risposta/appunti}
+Una metrica per la progettazione software è l'instabilità, che indica il rapporto tra coesione e accoppiamento di una
+componente. In coesione indica quanto le parti interne della componente siano legate tra loro. Una coesione alta è
+indice di una componente modulare, compatta e specializzata. L'accoppiamento indica invece quante dipendenze la
+componente ha con l'esterno. Maggiore è l'accoppiamento, minore è la mantenibilità e la modularità della componente.
+Un valore basso di instabilità indica una forte coesione e uno scarso accoppiamento, mentre un valore alto è sintomo di
+un accoppiamento troppo forte. L'obiettivo di tale metrica è di rendere il software più modulare e manutenibile
+possibile. Una metrica per il codice è la complessità ciclomatica, che indica il numero di cammini indipendenti che
+l'esecuzione di un metodo può intraprendere. Un valore alto è sintomo di un metodo troppo complesso, scarsamente
+modulare e manutenibile. Nel progetto didattico è stata utilizzata questa metrica, che ci ha permesso di rendere i metodi
+più modulari e facili da testare.
+
+\section{Architettura e framework}
+
+\subsection*{Domande}
+Fornire una definizione dei seguenti termini e ciò a cui essa corrisponde in un linguaggio di programmazione ad alto livello (specificando quale): "Modulo", "Unità", "Componente".
+
+\subsection*{Risposta/appunti}
+
+\subsection*{Domande}
+Differenza tra Dependency Injection e architettura a livelli.
+
+\subsection*{Risposta/appunti}
+
+\subsection*{Domande}
+Definizione di framework e descrizione dei criteri per la selezione e uso di questi.\\
+
+Fornire una definizione del concetto di "architettura software" radicata nel dominio dell'insegnamento. 
+A partire da essa, definire i concetti di "design pattern" e "framework", mettendo in relazione tra di loro e con la definizione di "architettura". 
+Indicare infine dove e quando tali concetti svolgano un ruolo significativo all'interno del "processo di sviluppo".\\
+
+Fornire una definizione di "architettura software" applicabile al dominio dell'ingegneria del software. 
+Discutere poi concisamente se e come tale nozione sia stata utilizzata nel progetto didattico.
+Uno dei concetti più importanti e al contempo meno acquisiti della progettazione software è quello di "architettura software". 
+Fornire una definizione di tale concetto e discutere se e come tale nozione sia stata concretamente utilizzata nel progetto didattico.\\
+
+Fornire una definizione concisa e ben fondata del concetto di "architettura software" e "software framework", radicati nel dominio dell'ingegneria del software.
+Nella risposta, evidenziare gli eventuali punti di contatto tra essi, possibilmente corroborando l'argomento con almeno un esempio concreto.
+
+\subsection*{Risposta/appunti}
+
+\subsection*{Risposta/appunti}
+L'architettura software è decomposizione del sistema, essa è composta dalle componenti, le interfaccie per la
+comunicazione tra componenti e i modelli utilizzati per la struttura delle componenti;
+Il framework è uno strumento software che offre delle funzionalità che possono facilitare la creazione di parte
+dell'architettura di un prodotto software.
+Sfruttando il riuso di un framework bisogna capire se si adatta alle necessità richieste. Nel progetto didattico si è scelto
+di utilizzare Spginr come framework perchè le funzionalità offerte erano molto utili per lo sviluppo del progetto.
+Sia nell'architettura che spesso nei framework si fa uso di design pattern ovvero soluzioni strutturate a problemi comuni.
+
+\section{Ciclo di Deming}
+
+\subsection*{Domande}
+Fornire una breve definizione del cosiddetto "ciclo di Deming" (anche noto come PDCA) e discutere concisamente se e come i suoi principi siano stati applicati nel proprio progetto didattico.\\
+
+Richiamare i principi e gli obiettivi del ciclo di deming; descrivere come possono essere utili nel progetto.
+
+\subsection*{Risposta/appunti}
+
+
+\section{Project management}
+
+\subsection*{Domande}
+Alla luce dell'esperienza acquisita nel proprio progetto didattico, discutere la ripartizione percentuale di impegno complessivo effettivo dedicato, a livello di gruppo, alle principali attività svolte. 
+Ipotizzare poi la ripartizione ideale rispetto al problema affrontato.\\
+
+Un elemento delle strategie di pianificazione di progetto concerne la ripartizione percentuale (quindi non la quantità ma la proporzione) delle risorse umane (ore/persona) disponibili sulle attività da svolgere.
+Discutere i criteri che avete utilizzato al riguardo nel progetto didattico, presentare le scelte fatte e valutarle criticamente alla luce di quanto appreso allo stato. \\
+
+Descrivere il processo di project management e gli strumenti di supporto. \\
+
+Alla luce dell'esperienza acquisita nel proprio progetto didattico, discutere concisamente quali "strategie di gestione di progetto" hanno portato benefici e quali invece – attuate poco o male, o non tempestivamente – hanno causato problemi e difficoltà.
+Enumerare le fasi costitutive di un processo di sviluppo.
+Indicare la percentuale di impegno raccomandato per ciascuna in un progetto “normale”, insieme a una sintetica giustificazione di ciascun valore assegnato.
+
+\subsection*{Risposta/appunti}
+Project Management:
+\begin{itemize}
+\item Pianificazione e distribuzione risorse
+\item Gestione dei rischi    
+\end{itemize}
+
+\section{Diagrammi di Gantt}
+
+\subsection*{Domande}
+Fornire una definizione del formalismo noto come “diagramma di Gantt”, discuterne concisamente le finalità e modalità d'uso, l'efficacia e i punti deboli eventualmente rilevati nell'esperienza del progetto didattico.\\
+
+Discutere le differenze informative tra il "diagramma di PERT" e il “diagramma di Gantt”.
+
+\subsection*{Risposta/appunti}
+
+Il diagramma di Gantt è uno strumento di supporto alla gestione dei progetti, utilizzato principalmente nelle attività di project management, che mostra le varie fasi che costituiscono il progetto come linee che partono nel diagramma dalla data in cui devono essere intraprese e terminano alla data in cui devono essere ultimate.
+
+Il diagramma reticolare di PERT (Program Evaluation and Review Technique) descrive la sequenza cronologica delle azioni pianificate per il completamento di un progetto nel suo complesso. Esso rappresenta graficamente il piano d’azione. 
+Il diagramma è composto da un certo numero di eventi (milestones) che si caratterizzano come sottobiettivi da realizzare per raggiungere il risultato finale; mentre le attività sono rappresentate da linee spesse che collegano gli eventi (solitamente rappresentati da cerchi). Sul diagramma, inoltre, è riportata anche la stima del tempo richiesto per svolgere ciascuna attività e le risorse da impiegare.
+Rispetto alla semplice stima a valore singolo, il metodo presuppone la determinazione di valori di stima ottimale, probabile e pessimistico che risultano più adeguati a valutare tempi e costi di attività di progetto che presentano incertezza o complessità.
+
+
+\section{Qualità}
+
+\subsection*{Domande}
+Definizione di qualità, discutere le ramificazioni e illustrare come perseguirla.\\
+
+Fornire una definizione del concetto di "qualità", applicabile al dominio dell'ingegneria del software. 
+Discutere concisamente quali attività il proprio gruppo di progetto didattico abbia svolto nella direzione di tale definizione, indicando – allo stato attuale di progetto – i migliori e i peggiori risultati ottenuti, offrendo una spiegazione dell'esito.\\
+
+Fornire una definizione sintetica della nozione di "qualità software" e applicarla alla valutazione del software prodotto nell'ambito del proprio progetto didattico.\\
+
+Fornire una definizione del concetto di "qualità", applicabile al dominio dell'ingegneria del software. \\
+
+Discutere concisamente quali attività il proprio gruppo di progetto didattico abbia svolto nella direzione di tale definizione, e valutarne criticamente l'esito rilevato.
+
+\subsection*{Risposta/appunti}
+
+
+\section{Requisiti}
+
+\subsection*{Domande}
+Con riferimento alla vostra esperienza di progetto didattico, ripercorrete la metodologia con la quale avete trasposto i requisiti utente, espressi esplicitamente o implicitamente nel capitolato, nei requisiti software da voi assunti.
+Valutate criticamente i frutti di tale metodologia, specialmente in rapporto alla maturità finale raggiunta sul problema da voi e dal vostro proponente.\\
+
+Delineare una metodologia per trasporre i requisiti utente nei requisiti software. 
+Indicare gli obiettivi che la metodologia si deve porre.\\
+
+Descrivere la tecnica di classificazione e tracciamento dei requisiti adottata nel proprio progetto didattico e discuterne l'efficacia e i limiti riscontrati.
+Fornire la definizione di requisito e descrivere il suo ciclo di vita ini un progetto rappresentandolo come macchina a stati, specificando anche le attività poste sugli archi.\\
+
+Illustrare best practice relativa all'analisi dei requisiti.\\
+
+Descrivere la tecnica di classificazione e tracciamento dei "requisiti" adottata nel proprio progetto didattico e discuterne l'efficacia e i limiti eventualmente riscontrati.
+
+\subsection*{Risposta/appunti}
+
+\section{Test}
+
+\subsection*{Domande}
+Illustrare concisamente la "strategia di verifica" tramite "test" adottata nel progetto didattico (quali tipi di test, quali obiettivi, quale grado di automazione, ecc.). 
+Alla luce dei risultati ottenuti nel progetto da tali attività, in termini di rapporto costi/benefici, discutere gli spazi di miglioramento rilevati e le eventuali eccellenze raggiunte.\\
+
+Illustrare la "strategia di testing" adottata nel proprio progetto didattico, valutarne l'efficacia e discutere brevemente se e come avrebbe potuto essere migliore.\\
+
+Illustrare gli obiettivi dei "test" di: (a) unità, (b) integrazione e (c) sistema, specificando quali siano per ciascuno di essi: (1) gli oggetti del test, (2) gli ingressi, (3) le uscite e (4) le attività da svolgere.
+Proporre concisamente una strategia di verifica tramite test sostenibile all'interno di un impegno di taglia analoga al progetto didattico, per dimensioni, livello di qualità atteso, disponibilità ed esperienza delle risorse.
+Concentrare la risposta sul tipo di test da prevedere, i loro obiettivi, il grado di automazione, e ogni altro fattore ritenuto di interesse. 
+Corredare la risposta motivando ogni elemento della proposta.
+
+\subsection*{Risposta/appunti}
+
+\section{Verifica e validazione}
+
+\subsection*{Domande}
+
+Illustrare differenze, per obiettivi e modalità di svolgimento, delle tecniche di inspection e walkthrough.\\
+
+Indicare le differenze (natura, finalità, collocazione) che intercorrono tra le attività di "verifica" e quelle di "validazione".\\
+
+Facendo riferimento allo standard ISO/IEC 12207, discutere la differenza di obiettivi, tecniche e strategie di conduzione tra i processi di "verifica" e "validazione".\\
+
+Facendo riferimento allo standard ISO/IEC 12207, discutere la differenza di obiettivi, attività coinvolte, strategie di conduzione e strumenti, tra i processi di verifica e validazione.
+
+\subsection*{Risposta/appunti}
+La verifica viene effettuata sui prodotti di ogni singola attività, è di interesse solamente interno all'azienda. Viene gestita
+ed effettuata dai verificatori di progetto e consiste nel controllo sistematico, disciplinato e misurabile dei prodotti di
+ogni attività (come documenti e/o codice). Tale controllo può essere effettuato a "pettine" (walthrough) con impiego di
+tempo e costi maggiori (ma necessar se l'azienda non ha ancora esperienza sufficiente) o a "campione" (inspection),
+controllando cioè solo le parti più critiche (ovvero più inclini ad errori) del prodotto.
+Il ciclo PDCA è uno dei metodi per applicare la verifica, in quanto comporta controlli frequenti e cicli, con conseguente
+miglioramento del prodotto che sia rispondente nelle aspettative iniziali del cliente. Tale processo si svolge controllando
+che ogni requisito formulato in analisi sia stato effettivamente e completamente soddisfatto. Per fare ciò, una
+componente fondamentale la svolgono i test funzionali, che appunto verificano le funzionalità del prodotto e il collaudo
+del cliente. Per facilitare questo processo è essenziale il tracciamento dei requisiti verso le componenti del prodotto. 
+
+\subsection*{Domande}
+Si può ipotizzare che esista una relazione tra le attività di "validazione" e quelle di "tracciamento dei requisiti". Discutere la natura di tale eventuale relazione e le tecniche che avete utilizzato nel progetto didattico per effettuare il tracciamento, analizzandone criticamente l'efficacia e i limiti riscontrati.
+
+\subsection*{Risposta/appunti}
+Ogni requisito deve avere un test di validazione per verificare che sia stato implementato e che funzioni.
+
+\section{Versionamento, configurazione e CI}
+
+\subsection*{Domande}
+Discutere la differenza tra le attività di "versionamento" e "configurazione" come applicate all'ambito dello sviluppo sw.\\
+
+Discutere almeno 2 (due) varianti della nozione di "configurazione" di prodotto/sistema. \\
+
+Indicare se e quale relazione intercorra tra "configurazione" e "versionamento" e specificare i relativi obiettivi.
+
+\subsection*{Risposta/appunti}
+
+
+
+\subsection*{Domande} % OK
+Inquadrare la pratica nota come "continuous integration" nel dominio dell'ingegneria del software e illustrare concisamente alcuni dei metodi e degli strumenti che consentono di attuarla. Ove possibile, rapportare tali considerazioni all'esperienza personale guadagnata nella loro applicazione.
+
+\subsection*{Risposta/appunti} % OK
+La continuous integration (o integrazione continua) è una pratica che si applica quando si utilizza un sistema di versionamento del software. Questa pratica consiste nel mantenere la repository condivisa il più aggiornata possibile, effettuando commit frequenti in modo che tutti gli sviluppatori che stanno lavorando sul codice abbiano a disposizione le modifiche dei collaboratori, permettendo una più facile integrazioni delle parti. Inoltre viene automatizzata la build in modo da controllare che il codice sia funzionante. Questa pratica viene spesso utilizzata nel Test Driven Development, automatizzando l'esecuzione dei test ad ogni commit.
+
+Nel nostro progetto è stato utilizzato Circle CI su GitHub, il quale eseguiva una serie di controlli preimpostati ad ogni commit in un branch. Se il commit non passava i controlli, veniva bloccata la possibilità di fare il merge sul branch master. In particolare, nella repository dei documenti veniva controllato che ci fosse corrispondenza tra i termini con la G a pedice fossero effettivamente presenti nel Glossario e venivano calcolate anche alcune metriche, come l'indice di Gulpease.
+Nella repo del codice, ad ogni commit veniva effettuata la build del progetto e venivano eseguiti i test. Se qualcosa falliva, veniva bloccato il merge.
+Inoltre è stato successivamente adottata anche la tecnica del Continuous Deployment, con la quale veniva rilasciata una nuova versione del software su un test server ad ogni commit sul branch master, il quale conteneva solo il codice funzionante.
+
+\section{Sviluppo Agile}
+
+\subsection*{Domande}
+Un numero crescente di domini applicativi predilige l'adozione dei metodi di sviluppo agile (nelle loro svariate declinazioni). Richiamandone concisamente le caratteristiche distintive, discutere come esse si adattino alle esigenze del progetto didattico, ove possibile confrontandole con quelle del modello effettivamente adottato.
+
+\subsection*{Risposta/appunti}
+I metodi agili si basano su uno stretto rapporto con il cliente, fatto di continui incontri con esso documentando la user
+story. La documentazione dello sviluppo del progetto però è assente, salvo per la user story del cliente.
+Un aspetto molto importante nei metodi agili è la rapida risposta alle esigenze del cliente, infatti si basa sul principio del
+"meglio agire che pianificare" di conseguenza la pianificazione è praticamente assente. Scrum ad esempio è un modello
+agile in cui gli spazi sono aperti e si usa una "lavagna" sono indicate tutte le cose e quelle da fare, in questo modo tutti
+sanno cosa manca, inoltre il cliente è molto coinvolto.
+Questo modello non è adattabile al progetto didattico in quanto la documentazione è parte fondamentale del progetto,
+inoltre la poca esperienza del team sconsiglia questa tecnica; la scelta invece di un modello di sviluppo incrementale è
+molto migliore vista la poca esperienza del team, con essa infatti una volta stabilita la base ( requisiti + progettazione
+architetturale) è molto più semplice effettuare cicli migliorativi andando ad aggiungere un ciclo alla volta le funzionalità
+al prodotto. Inoltre in questo modo la pianificazione risulta essere molto importante evitando di trovarsi in ritardo coi
+tempi.
+
+\section{Appunti vari}
+
+Definizioni dal glossario del progetto:\\
+\textbf{Processo}\\
+Nell'ingegneria del software il processo software è il procedimento che permette di
+scrivere un software di qualità in un tempo prefissato.\\
+\textbf{Prodotto}\\
+Il risultato ottenuto da una tecnica di lavorazione che possa essere offerto per
+soddisfare un bisogno o un'esigenza.\\
+\textbf{Validazione}\\
+Conferma a fronte di evidenze oggettive che i requisiti per un uso o un'applicazione
+specifici sono stati soddisfatti.\\
+\textbf{Verifica}\\
+Conferma a fronte di evidenze oggettive che i requisiti sono stati soddisfatti.\\
+\textbf{Baseline}\\
+Rappresenta un punto di riferimento dal quale calcolare l’avanzamento del lavoro
+in un progetto.\\
+\textbf{Milestone}\\
+Traguardi intermedi ed importanti nello svolgimento di un progetto; sono spesso
+fissati in fase di pianificazione.\\
+
+
+Il Piano di Progetto si occupa di raggiungere l'efficienza. Esso mette le risorse disponibili
+nel tempo e le dispiega nel miglior modo possibile, rispettando i vincoli.
+
+Il Piano di Qualifica fissa gli obiettivi di qualità mentre le Norme di Progetto stabiliscono
+come verificare. Bisogna inoltre inserire gli obiettivi di efficacia e di
+conformità. Tutti questi obiettivi devono essere quantitativi.
+E' possibile riassumere la spiegazione in due punti:
+\begin{itemize}
+\item Si fissano gli obiettivi;
+\item In relazione agli obiettivi si decide quanti e quali test di verifica serve fare per raggiungerli.
+\end{itemize}
+
+Le metriche interessanti per i processi devono seguire due punti fondamentali:
+\begin{itemize}
+\item Devono essere metriche misurabili più volte e che ci consentano di migliorare la qualità del processo;
+\item Devono essere metriche utili per noi, che ci sgravano dai lavori manuali troppo dispendiosi; meglio se misurabili in maniera automatica. 
+\end{itemize}
+Le metriche devono poi trovare un giusto compromesso tra l'importanza e lo sforzo per
+l'attuazione. Inoltre, devono essere valutazioni quantitative misurabili. Da qui bisogna
+partire e mettere in piedi dei sistemi di verifica che non siano troppo grossolani nel
+calcolo di queste quantità (Budget Variance ad esempio è troppo impreciso).
