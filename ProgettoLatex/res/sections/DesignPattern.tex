@@ -185,7 +185,7 @@ Un builder permette anche di costruire un oggetto passo-passo, cosa che si può 
 Spesso il Builder viene utilizzato per la costruzione di un'interfaccia grafica.
 
 \subsection{Factory method$_+$}
-il Factory Method indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.
+Il Factory Method indirizza il problema della creazione di oggetti senza specificarne l'esatta classe. Questo pattern raggiunge il suo scopo fornendo un'interfaccia per creare un oggetto, ma lascia che le sottoclassi decidano quale oggetto istanziare.
 
 La creazione di un oggetto può, spesso, richiedere processi complessi la cui collocazione all'interno della classe di composizione potrebbe non essere appropriata. Esso può, inoltre, comportare la duplicazione di codice, richiedere informazioni non accessibili alla classe di composizione, o non provvedere un sufficiente livello di astrazione.
  Il factory method indirizza questi problemi definendo un metodo separato per la creazione degli oggetti; tale metodo può essere ridefinito dalle sottoclassi per definire il tipo derivato di prodotto che verrà effettivamente creato.
@@ -199,7 +199,7 @@ Il pattern factory può essere utilizzato quando:
 La gestione del ciclo di vita degli oggetti gestiti deve essere centralizzata in modo da assicurare un comportamento coerente all'interno dell'applicazione.
 
 \subsection{Lazy initialization$_+$}
-si dice Lazy initialization (inizializzazione pigra) la tattica di istanziare un oggetto, inizializzare una variabile, effettuare un calcolo od eseguire un processo solo nel momento in cui tale operazione è richiesta.
+Si dice Lazy initialization (inizializzazione pigra) la tattica di istanziare un oggetto, inizializzare una variabile, effettuare un calcolo od eseguire un processo solo nel momento in cui tale operazione è richiesta.
 
 Tipicamente, questo si ottiene memorizzando in un flag l'avvenimento di un determinato processo. Ogni volta che avviene un certo evento, si esamina il flag. Se questo è abbassato, si continua, altrimenti si inizializza una certa variabile o si istanzia un certo oggetto.
 
