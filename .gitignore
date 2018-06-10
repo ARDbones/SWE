@@ -13,3 +13,5 @@
 *.cb2
 *synctex.gz
 *.fdb_latexmk
+
+.pdf
