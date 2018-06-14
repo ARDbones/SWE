@@ -256,7 +256,7 @@ Si può ipotizzare che esista una relazione tra le attività di "validazione" e 
 \subsection*{Risposta/appunti}
 Ogni requisito deve avere un test di validazione per verificare che sia stato implementato e che funzioni.
 
-\section{Versionamento, configurazione e CI}
+\section{Versionamento, configurazione e CI} % OK
 
 \subsection*{Domande}
 Discutere la differenza tra le attività di "versionamento" e "configurazione" come applicate all'ambito dello sviluppo sw.\\
@@ -266,6 +266,35 @@ Discutere almeno 2 (due) varianti della nozione di "configurazione" di prodotto/
 Indicare se e quale relazione intercorra tra "configurazione" e "versionamento" e specificare i relativi obiettivi.
 
 \subsection*{Risposta/appunti}
+
+Un sistema software è soggetto a molte modifiche (nuovi requisiti, bugfix, ecc), ognuna delle quali crea una nuova versione del sistema. Un sistema software è quindi un'insieme di versioni che vanno gestite e mantenute: questo viene effettuato tramite la configurazione, un'insieme di processi e strumenti per gestire un sistema in evoluzione. 
+La configurazione è composta da 4 attività correlate tra loro:
+\begin{itemize}
+\item controllo delle versioni
+\item costruzione del sistema
+\item gestione delle modifiche
+\item gestione delle release 
+\end{itemize}
+
+Il controllo delle versioni (o anche \textit{versionamento}) consiste nel tenere traccia delle versioni e nell'assicurarsi che le modifiche di sviluppatori diversi non interferiscano tra loro.
+
+La costruzione del sistema (\textit{building}) è il processo che assembla i componenti del sistema, compilando e collegando il tutto per creare un sistema eseguibile.
+
+La gestione delle modifiche (\textit{ticketing}) è il processo che tiene traccia delle richieste di modifica da parte dei clienti o degli sviluppatori, valuta i costi delle modifiche e se implementarle.
+
+La gestione delle release (\textit{deployment}) è il processo che prepara il software al rilascio e che tiene traccia delle versioni rilasciate. 
+
+Per effettuare con successo la configurazione, vengono utilizzati diversi strumenti di configurazione, come ad esempio un sistema di versionamento come Git o SVN, strumenti che permettono la build o il rilascio automatico e piattaforme che permettono di utilizzare un sistema di ticketing dove è possibile segnalare un issue. \`E compito dell'amministratore configurare questi strumenti.
+
+Spesso la costruzione del sistema e il processo di rilascio vengono automatizzati. Nella pratica nota come Continuous Integration infatti, la build del sistema avviene in maniera automatica secondo determinate condizioni e allo stesso modo può essere automatizzato il rilascio. Nel nostro progetto didattico... [riporto esempio (vedi anche domanda CI)].
+
+
+
+
+
+
+
+
 
 
 
