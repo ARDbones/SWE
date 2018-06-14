@@ -14,8 +14,17 @@ Definizione di efficacia ed efficienza e esempi di come concorrono alla formazio
 Durante lo svolgimento del progetto didattico avete sovente confuso la nozione di "fase" di progetto con quella di "attività" di progetto (o, meglio ancora, di processo software, inteso come aggregato di attività coordinate e coese).
 Provate qui a descrivere compiutamente ciascuna delle due nozioni così da evidenziare le differenze e le relazioni tra esse.\\
 
+\subsection*{Domande}
+
 Elencare quali "attività di progetto" software ritenete siano utilmente automatizzabili, in tutto e in parte, provando anche a rapportare i vantaggi che ne deriverebbero con i costi che l'ottenimento di tale automazione potrebbe comportare.\\
 
+\subsection*{Risposta/appunti}
+Metriche, test, building e deployment.
+
+
+\section{ISO 12207 e processi}
+
+\subsection*{Domande}
 
 Definizione di processo, attività e fase.
 Fissando l'attenzione sulla definizione di processo associata allo standard ISO/IEC 12207, indicare quali processi sia possibile e opportuno istanziare su una attività di tagli analoga al progetto didattico, e con quale istanziazione concreta (cioè verso quale insieme di attività, obiettivi, e flussi di dipendenza).\\
@@ -23,11 +32,42 @@ Fissando l'attenzione sulla definizione di processo associata allo standard ISO/
 Fissando l'attenzione sulla definizione di "processo" associata allo standard ISO/IEC 12207, indicare come (secondo quali regole), quando (in quali fasi di progetto) e perché (attraverso quali attività) la vostra esperienza di progetto didattico ha visto attuato tale concetto. 
 Una azienda informatica asserisce di applicare ai suoi processi produttivi lo standard "ISO/IEC 12207". Si tratta di una affermazione corretta? Spiegare brevemente la risposta.\\
 
-Tre tipi di processi:
+\subsection*{Risposta/appunti}
+
+Secondo lo standard i processi sono suddivisi in tre tipologie:
 \begin{itemize}
-\item I processi Primari sono il fulcro dello sviluppo del prodotto e si servono dei processi di Supporto ed Organizzativi;
-\item I processi di Supporto invece sono ausiliari agli altri processi per il corretto sviluppo del progetto;
-\item I processi Organizzativi stanno al di sotto di tutto, e provvedono alla corretta gestione dello sviluppo.
+\item I processi \textbf{Primari} sono il fulcro dello sviluppo del prodotto e si servono dei processi di Supporto ed Organizzativi;
+\item I processi di \textbf{Supporto} invece sono ausiliari agli altri processi per il corretto sviluppo del progetto;
+\item I processi \textbf{Organizzativi} stanno al di sotto di tutto, e provvedono alla corretta gestione dello sviluppo.
+\end{itemize}
+In particolare, lo standard propone i seguenti processi:
+\begin{itemize}
+\item Primary life cycle processes
+\begin{itemize}
+\item Acquisition process
+\item Supply process
+\item Development process
+\item Operation process
+\item Maintenance process
+\end{itemize}
+\item Supporting life cycle processes
+\begin{itemize}
+\item Documentation process
+\item Configuration management process
+\item Quality assurance process
+\item Verification process
+\item Validation process
+\item Joint review process
+\item Audit process
+\item Problem resolution process
+\end{itemize}
+\item Organizational life cycle processes
+\begin{itemize}
+\item Management process
+\item Infrastructure process
+\item Improvement process
+\item Training process
+\end{itemize}
 \end{itemize}
 
 \section{Sviluppo iterativo e incrementale}
@@ -52,16 +92,16 @@ L'avanzamento con questo modello è più lento, genero dei prototipi che sono di
 Interni, ovvero servono al team per approcciarsi al problema e trovare una soluzione (di solito genera solo costi).
 Esterni, ovvero sono prototipi che sottopongo al cliente che può accettare o meno mettendo in discussione quanto
 pianificato e facendo tornare indietro.
-Il modello incrementale che ho utlizzato durante il progetto didattico invece si prefigge l'obiettivo di portare un
+Il modello incrementale che ho utilizzato durante il progetto didattico invece si prefigge l'obiettivo di portare un
 avanzamento continuo il progetto senza mai tornare indietro.
 Si basa sul fatto che aggiungo qualcosa di volta in volta ad una baseline stabile rafforzando l'idea che la baseline sia
 solida.Si verifica un effetto a gradino nel quale non retrocedo più ovvero una volta incrementato so che sono avanzato e
 che la baseline è buona.
 Rispetto al progetto didattico, posso affermare che sicuramente il modello incrementare era quello che più si presto al
 rispetto dei vincoli e obiettivi del capitolato, in quanto sono state fissate delle milestone e delle baseline che
-imponevano un persorso di avanzamento con date progressive. Inoltre per il committente era importante avere un
+imponevano un percorso di avanzamento con date progressive. Inoltre per il committente era importante avere un
 prodotto che potesse essere fruibile nelle versioni base e da li si potesse avanza e l'idea di tornare indietro
-pericolosamente poteva compromettere la riusciata dal progetto nei tempi fissati.
+pericolosamente poteva compromettere la riuscita dal progetto nei tempi fissati.
 Personalmente ho trovato molto buono il modello incrementale e ci ha permesso di rispettare tutte le consegna e di non
 saltare nessuna revisione, dunque credo che la scelta di questo modello sia stata azzeccata.
 
@@ -242,7 +282,7 @@ Facendo riferimento allo standard ISO/IEC 12207, discutere la differenza di obie
 La verifica viene effettuata sui prodotti di ogni singola attività, è di interesse solamente interno all'azienda. Viene gestita
 ed effettuata dai verificatori di progetto e consiste nel controllo sistematico, disciplinato e misurabile dei prodotti di
 ogni attività (come documenti e/o codice). Tale controllo può essere effettuato a "pettine" (walthrough) con impiego di
-tempo e costi maggiori (ma necessar se l'azienda non ha ancora esperienza sufficiente) o a "campione" (inspection),
+tempo e costi maggiori (ma necessari se l'azienda non ha ancora esperienza sufficiente) o a "campione" (inspection),
 controllando cioè solo le parti più critiche (ovvero più inclini ad errori) del prodotto.
 Il ciclo PDCA è uno dei metodi per applicare la verifica, in quanto comporta controlli frequenti e cicli, con conseguente
 miglioramento del prodotto che sia rispondente nelle aspettative iniziali del cliente. Tale processo si svolge controllando
